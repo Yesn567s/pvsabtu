@@ -15008,4 +15008,10 @@
         d1bdXHSDjm1hWOGusm5XYjMrhCT2MvOK+9oHDMPu4QaJ2jL7wz+5zYis43nbuQAAAABJRU5ErkJggg==
 </value>
   </data>
+  <metadata name="timerGameUpdate.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>172, 17</value>
+  </metadata>
+  <metadata name="timerProduction.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>323, 17</value>
+  </metadata>
 </root>

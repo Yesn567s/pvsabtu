@@ -34,6 +34,9 @@ namespace WindowsFormsApp1
                     map.Add(a);
                 }
             }
+
+            timerGameUpdate.Start();
+            timerProduction.Start();
         }
 
         private void huntToolStripMenuItem_Click(object sender, EventArgs e)
@@ -50,6 +53,33 @@ namespace WindowsFormsApp1
         private void buttonUpgrade_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Updatelabel()
+        {
+            labelClayAmt.Text = GameData.res_clay.ToString();
+            labelIronAmt.Text = GameData.res_iron.ToString();
+            labelWoodAmt.Text = GameData.res_wood.ToString();
+            labelCropAmt.Text = GameData.res_crop.ToString();
+
+            labelClayProduction.Text = GameData.produce_clay_sum.ToString();
+            labelIronProduction.Text = GameData.produce_iron_sum.ToString();
+            labelWoodProduction.Text = GameData.produce_wood_sum.ToString();
+            labelCropProduction.Text = GameData.produce_crop_sum.ToString();
+        }
+
+        private void timerGameUpdate_Tick(object sender, EventArgs e) // update game visual setiap 1000/60 = 16.67 frame (60 tick biar ga ngeleg)
+        {
+            Updatelabel();
+            GameData.updateProduction();
+        }
+
+        private void timerProduction_Tick(object sender, EventArgs e)
+        {
+            GameData.res_clay += GameData.produce_clay_sum;
+            GameData.res_iron += GameData.produce_iron_sum;
+            GameData.res_wood += GameData.produce_wood_sum;
+            GameData.res_crop += GameData.produce_crop_sum;
         }
     }
 }

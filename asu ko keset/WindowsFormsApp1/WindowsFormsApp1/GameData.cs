@@ -1,0 +1,49 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace WindowsFormsApp1
+{
+    public static class GameData
+    {
+        public static Generator clay1 = new Generator(1, 1);
+        public static Generator clay2 = new Generator(2, 1);
+        public static Generator clay3 = new Generator(3, 1);
+        public static Generator clay4 = new Generator(4, 1);
+
+        public static Generator iron1 = new Generator(1, 2);
+        public static Generator iron2 = new Generator(2, 2);
+        public static Generator iron3 = new Generator(3, 2);
+        public static Generator iron4 = new Generator(4, 2);
+
+        public static Generator wood1 = new Generator(1, 3);
+        public static Generator wood2 = new Generator(2, 3);
+        public static Generator wood3 = new Generator(3, 3);
+        public static Generator wood4 = new Generator(4, 3);
+
+        public static Generator crop1 = new Generator(1, 4);
+        public static Generator crop2 = new Generator(2, 4);
+        public static Generator crop3 = new Generator(3, 4);
+        public static Generator crop4 = new Generator(4, 4);
+
+        public static int res_clay = 0;
+        public static int res_iron = 0;
+        public static int res_wood = 0;
+        public static int res_crop = 0;
+
+        public static int produce_clay_sum = 0;
+        public static int produce_iron_sum = 0;
+        public static int produce_wood_sum = 0;
+        public static int produce_crop_sum = 0;
+
+        public static void updateProduction()
+        {
+            produce_clay_sum = clay1.production_rate + clay2.production_rate + clay3.production_rate + clay4.production_rate;
+            produce_iron_sum = iron1.production_rate + iron2.production_rate + iron3.production_rate + iron4.production_rate;
+            produce_wood_sum = wood1.production_rate + wood2.production_rate + wood3.production_rate + wood4.production_rate;
+            produce_crop_sum = crop1.production_rate + crop2.production_rate + crop3.production_rate + crop4.production_rate;
+        }
+    }
+}

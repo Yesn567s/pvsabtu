@@ -43,19 +43,19 @@
             this.labelWoodAmt = new System.Windows.Forms.Label();
             this.labelIronAmt = new System.Windows.Forms.Label();
             this.groupBoxProduction = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.labelCropProduction = new System.Windows.Forms.Label();
+            this.labelWoodProduction = new System.Windows.Forms.Label();
+            this.labelIronProduction = new System.Windows.Forms.Label();
+            this.labelClayProduction = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBoxDetails = new System.Windows.Forms.GroupBox();
-            this.buttonUpgrade = new System.Windows.Forms.Button();
             this.labelDetails = new System.Windows.Forms.Label();
+            this.buttonUpgrade = new System.Windows.Forms.Button();
             this.groupBoxTime = new System.Windows.Forms.GroupBox();
-            this.label13 = new System.Windows.Forms.Label();
+            this.labelTimer = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -73,6 +73,8 @@
             this.button16 = new System.Windows.Forms.Button();
             this.button17 = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
+            this.timerGameUpdate = new System.Windows.Forms.Timer(this.components);
+            this.timerProduction = new System.Windows.Forms.Timer(this.components);
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBoxProduction.SuspendLayout();
@@ -100,7 +102,7 @@
             this.pictureBox1.ContextMenuStrip = this.contextMenuStrip1;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(11, 68);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(591, 355);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -198,10 +200,10 @@
             // 
             // groupBoxProduction
             // 
-            this.groupBoxProduction.Controls.Add(this.label12);
-            this.groupBoxProduction.Controls.Add(this.label11);
-            this.groupBoxProduction.Controls.Add(this.label10);
-            this.groupBoxProduction.Controls.Add(this.label9);
+            this.groupBoxProduction.Controls.Add(this.labelCropProduction);
+            this.groupBoxProduction.Controls.Add(this.labelWoodProduction);
+            this.groupBoxProduction.Controls.Add(this.labelIronProduction);
+            this.groupBoxProduction.Controls.Add(this.labelClayProduction);
             this.groupBoxProduction.Controls.Add(this.label8);
             this.groupBoxProduction.Controls.Add(this.label7);
             this.groupBoxProduction.Controls.Add(this.label6);
@@ -213,32 +215,41 @@
             this.groupBoxProduction.TabStop = false;
             this.groupBoxProduction.Text = "Production Per Hour";
             // 
-            // label5
+            // labelCropProduction
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 32);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(30, 13);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Clay:";
+            this.labelCropProduction.AutoSize = true;
+            this.labelCropProduction.Location = new System.Drawing.Point(51, 98);
+            this.labelCropProduction.Name = "labelCropProduction";
+            this.labelCropProduction.Size = new System.Drawing.Size(13, 13);
+            this.labelCropProduction.TabIndex = 7;
+            this.labelCropProduction.Text = "0";
             // 
-            // label6
+            // labelWoodProduction
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 54);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(28, 13);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Iron:";
+            this.labelWoodProduction.AutoSize = true;
+            this.labelWoodProduction.Location = new System.Drawing.Point(51, 76);
+            this.labelWoodProduction.Name = "labelWoodProduction";
+            this.labelWoodProduction.Size = new System.Drawing.Size(13, 13);
+            this.labelWoodProduction.TabIndex = 6;
+            this.labelWoodProduction.Text = "0";
             // 
-            // label7
+            // labelIronProduction
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 76);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(39, 13);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "Wood:";
+            this.labelIronProduction.AutoSize = true;
+            this.labelIronProduction.Location = new System.Drawing.Point(51, 50);
+            this.labelIronProduction.Name = "labelIronProduction";
+            this.labelIronProduction.Size = new System.Drawing.Size(13, 13);
+            this.labelIronProduction.TabIndex = 5;
+            this.labelIronProduction.Text = "0";
+            // 
+            // labelClayProduction
+            // 
+            this.labelClayProduction.AutoSize = true;
+            this.labelClayProduction.Location = new System.Drawing.Point(51, 32);
+            this.labelClayProduction.Name = "labelClayProduction";
+            this.labelClayProduction.Size = new System.Drawing.Size(13, 13);
+            this.labelClayProduction.TabIndex = 4;
+            this.labelClayProduction.Text = "0";
             // 
             // label8
             // 
@@ -249,41 +260,32 @@
             this.label8.TabIndex = 3;
             this.label8.Text = "Crop:";
             // 
-            // label9
+            // label7
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(51, 32);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(13, 13);
-            this.label9.TabIndex = 4;
-            this.label9.Text = "0";
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 76);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(39, 13);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "Wood:";
             // 
-            // label10
+            // label6
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(51, 50);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(13, 13);
-            this.label10.TabIndex = 5;
-            this.label10.Text = "0";
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 54);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(28, 13);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Iron:";
             // 
-            // label11
+            // label5
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(51, 76);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(13, 13);
-            this.label11.TabIndex = 6;
-            this.label11.Text = "0";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(51, 98);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(13, 13);
-            this.label12.TabIndex = 7;
-            this.label12.Text = "0";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 32);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(30, 13);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Clay:";
             // 
             // groupBoxDetails
             // 
@@ -296,9 +298,20 @@
             this.groupBoxDetails.TabStop = false;
             this.groupBoxDetails.Text = "Building Details";
             // 
+            // labelDetails
+            // 
+            this.labelDetails.AutoSize = true;
+            this.labelDetails.Location = new System.Drawing.Point(24, 42);
+            this.labelDetails.Name = "labelDetails";
+            this.labelDetails.Size = new System.Drawing.Size(41, 13);
+            this.labelDetails.TabIndex = 1;
+            this.labelDetails.Text = "label13";
+            this.labelDetails.Visible = false;
+            // 
             // buttonUpgrade
             // 
             this.buttonUpgrade.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonUpgrade.Enabled = false;
             this.buttonUpgrade.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonUpgrade.Location = new System.Drawing.Point(108, 174);
             this.buttonUpgrade.Name = "buttonUpgrade";
@@ -308,18 +321,9 @@
             this.buttonUpgrade.UseVisualStyleBackColor = false;
             this.buttonUpgrade.Click += new System.EventHandler(this.buttonUpgrade_Click);
             // 
-            // labelDetails
-            // 
-            this.labelDetails.AutoSize = true;
-            this.labelDetails.Location = new System.Drawing.Point(24, 42);
-            this.labelDetails.Name = "labelDetails";
-            this.labelDetails.Size = new System.Drawing.Size(41, 13);
-            this.labelDetails.TabIndex = 1;
-            this.labelDetails.Text = "label13";
-            // 
             // groupBoxTime
             // 
-            this.groupBoxTime.Controls.Add(this.label13);
+            this.groupBoxTime.Controls.Add(this.labelTimer);
             this.groupBoxTime.Location = new System.Drawing.Point(11, 442);
             this.groupBoxTime.Name = "groupBoxTime";
             this.groupBoxTime.Size = new System.Drawing.Size(591, 75);
@@ -327,14 +331,15 @@
             this.groupBoxTime.TabStop = false;
             this.groupBoxTime.Text = "Upgrade Time:";
             // 
-            // label13
+            // labelTimer
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(8, 21);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(41, 13);
-            this.label13.TabIndex = 0;
-            this.label13.Text = "label13";
+            this.labelTimer.AutoSize = true;
+            this.labelTimer.Location = new System.Drawing.Point(8, 21);
+            this.labelTimer.Name = "labelTimer";
+            this.labelTimer.Size = new System.Drawing.Size(41, 13);
+            this.labelTimer.TabIndex = 0;
+            this.labelTimer.Text = "label13";
+            this.labelTimer.Visible = false;
             // 
             // button2
             // 
@@ -489,6 +494,18 @@
             this.button18.Text = "0";
             this.button18.UseVisualStyleBackColor = true;
             // 
+            // timerGameUpdate
+            // 
+            this.timerGameUpdate.Enabled = true;
+            this.timerGameUpdate.Interval = 60;
+            this.timerGameUpdate.Tick += new System.EventHandler(this.timerGameUpdate_Tick);
+            // 
+            // timerProduction
+            // 
+            this.timerProduction.Enabled = true;
+            this.timerProduction.Interval = 1000;
+            this.timerProduction.Tick += new System.EventHandler(this.timerProduction_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -525,7 +542,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DoubleBuffered = true;
+            this.KeyPreview = true;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -557,19 +576,19 @@
         private System.Windows.Forms.Label labelWoodAmt;
         private System.Windows.Forms.Label labelIronAmt;
         private System.Windows.Forms.GroupBox groupBoxProduction;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label labelWoodProduction;
+        private System.Windows.Forms.Label labelIronProduction;
+        private System.Windows.Forms.Label labelClayProduction;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label labelCropProduction;
         private System.Windows.Forms.GroupBox groupBoxDetails;
         private System.Windows.Forms.Label labelDetails;
         private System.Windows.Forms.Button buttonUpgrade;
         private System.Windows.Forms.GroupBox groupBoxTime;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label labelTimer;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
@@ -587,6 +606,8 @@
         private System.Windows.Forms.Button button16;
         private System.Windows.Forms.Button button17;
         private System.Windows.Forms.Button button18;
+        private System.Windows.Forms.Timer timerGameUpdate;
+        private System.Windows.Forms.Timer timerProduction;
     }
 }
 
