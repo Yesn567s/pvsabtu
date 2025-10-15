@@ -41,5 +41,15 @@ namespace WindowsFormsApp1
             Form2 f2 = new Form2(map);
             f2.ShowDialog();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonUpgrade_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
