@@ -67,7 +67,9 @@
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
     <Compile Include="GameData.cs" />
-    <Compile Include="Generator.cs" />
+    <Compile Include="Generator.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="GlobalData.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

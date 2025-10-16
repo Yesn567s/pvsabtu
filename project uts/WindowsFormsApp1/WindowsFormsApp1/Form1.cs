@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.LinkLabel;
 
 namespace WindowsFormsApp1
 {
@@ -19,6 +20,9 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             upgset();
+            //Hide Posisi Button Asli (nanti hapus sama buttonnya)
+            foreach (Control b in this.Controls) if (b is Button) b.Visible = false;
+            genset();
             GameData.AnimationSpeedChanged += OnAnimationSpeedChanged;
             string mapPath = "map.txt";
             if (System.IO.File.Exists(mapPath))
@@ -71,10 +75,6 @@ namespace WindowsFormsApp1
 
         }
 
-        private void buttonUpgrade_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void Updatelabel()
         {
@@ -110,6 +110,7 @@ namespace WindowsFormsApp1
             GameData.res_iron += GameData.produce_iron_sum;
             GameData.res_wood += GameData.produce_wood_sum;
             GameData.res_crop += GameData.produce_crop_sum;
+            uptimer();
         }
 
         private void Form1_KeyPress(object sender, KeyPressEventArgs e)
@@ -138,26 +139,26 @@ namespace WindowsFormsApp1
 
         private void upgset() // knee grow
         {
-            GlobalData.upg.crop.AddcropRow(1, 40, 100, 50, 60, 260, 7, 0);
-            GlobalData.upg.crop.AddcropRow(2, 65, 165, 85, 100, 620, 13, 6);
-            GlobalData.upg.crop.AddcropRow(3, 110, 280, 140, 165, 1190, 21, 8);
-            GlobalData.upg.crop.AddcropRow(4, 185, 465, 235, 280, 2100, 31, 10);
-            GlobalData.upg.crop.AddcropRow(5, 310, 780, 390, 465, 3560, 46, 15);
-            GlobalData.upg.crop.AddcropRow(6, 520, 1300, 650, 780, 5890, 70, 24);
-            GlobalData.upg.crop.AddcropRow(7, 870, 2170, 1085, 1300, 9620, 98, 28);
-            GlobalData.upg.crop.AddcropRow(8, 1450, 3625, 1810, 2175, 15590, 140, 42);
-            GlobalData.upg.crop.AddcropRow(9, 2420, 6050, 3025, 3630, 25150, 203, 63);
-            GlobalData.upg.crop.AddcropRow(10, 4040, 10105, 5050, 6060, 40440, 280, 77);
-            GlobalData.upg.crop.AddcropRow(11, 6750, 16870, 8435, 10125, 64900, 392, 112);
-            GlobalData.upg.crop.AddcropRow(12, 11270, 28175, 14090, 16905, 104050, 525, 133);
-            GlobalData.upg.crop.AddcropRow(13, 18820, 47055, 23525, 28230, 166680, 693, 168);
-            GlobalData.upg.crop.AddcropRow(14, 31430, 78580, 39290, 47150, 266880, 889, 196);
-            GlobalData.upg.crop.AddcropRow(15, 52490, 131230, 65615, 78740, 427210, 1120, 231);
-            GlobalData.upg.crop.AddcropRow(16, 87660, 219155, 109575, 131490, 683730, 1400, 280);
-            GlobalData.upg.crop.AddcropRow(17, 146395, 365985, 182995, 219590, 1094170, 1820, 420);
-            GlobalData.upg.crop.AddcropRow(18, 244480, 611195, 305600, 366715, 1750880, 2240, 420);
-            GlobalData.upg.crop.AddcropRow(19, 408280, 1020695, 510350, 612420, 2801600, 2800, 560);
-            GlobalData.upg.crop.AddcropRow(20, 681825, 1704565, 852280, 1022740, 4482770, 3430, 630);
+            GlobalData.upg.crop.AddcropRow(1, 70, 90, 70, 20, 150, 7, 0);
+            GlobalData.upg.crop.AddcropRow(2, 115, 150, 115, 35, 440, 13, 6);
+            GlobalData.upg.crop.AddcropRow(3, 195, 250, 195, 55, 900, 21, 8);
+            GlobalData.upg.crop.AddcropRow(4, 325, 420, 325, 95, 1650, 31, 10);
+            GlobalData.upg.crop.AddcropRow(5, 545, 700, 545, 155, 2830, 46, 15);
+            GlobalData.upg.crop.AddcropRow(6, 910, 1170, 910, 260, 4730, 70, 24);
+            GlobalData.upg.crop.AddcropRow(7, 1520, 1950, 1520, 435, 7780, 98, 28);
+            GlobalData.upg.crop.AddcropRow(8, 2535, 3260, 2535, 725, 12640, 140, 42);
+            GlobalData.upg.crop.AddcropRow(9, 4235, 5445, 4235, 1210, 20430, 203, 63);
+            GlobalData.upg.crop.AddcropRow(10, 7070, 9095, 7070, 2020, 32880, 280, 77);
+            GlobalData.upg.crop.AddcropRow(11, 11810, 15185, 11810, 3375, 52810, 392, 112);
+            GlobalData.upg.crop.AddcropRow(12, 19725, 25360, 19725, 5635, 84700, 525, 133);
+            GlobalData.upg.crop.AddcropRow(13, 32940, 42350, 32940, 9410, 135710, 693, 168);
+            GlobalData.upg.crop.AddcropRow(14, 55005, 70720, 55005, 15715, 217340, 889, 196);
+            GlobalData.upg.crop.AddcropRow(15, 91860, 118105, 91860, 26245, 347950, 1120, 231);
+            GlobalData.upg.crop.AddcropRow(16, 153405, 197240, 153405, 43830, 556910, 1400, 280);
+            GlobalData.upg.crop.AddcropRow(17, 256190, 329385, 256190, 73195, 891260, 1820, 420);
+            GlobalData.upg.crop.AddcropRow(18, 427835, 550075, 427835, 122240, 1426210, 2240, 420);
+            GlobalData.upg.crop.AddcropRow(19, 714485, 918625, 714485, 204140, 2282140, 2800, 560);
+            GlobalData.upg.crop.AddcropRow(20, 1193195, 1534105, 1193195, 340915, 3651630, 3430, 630);
 
             GlobalData.upg.clay.AddclayRow(1, 80, 40, 80, 50, 220, 7, 0);
             GlobalData.upg.clay.AddclayRow(2, 135, 65, 135, 85, 550, 13, 6);
@@ -229,6 +230,245 @@ namespace WindowsFormsApp1
             timerProduction.Interval = mult == 10 ? 100 : 1000 / mult;
             game_speed = mult;
             Updatelabel();
+        }
+
+        private void genset()
+        {
+            GameData.clay1.Location = new Point(239, 349);
+            GameData.clay1.Size = new Size(15, 24);
+            this.Controls.Add(GameData.clay1);
+            GameData.clay1.BringToFront();
+
+            GameData.clay2.Location = new Point(304, 150);
+            GameData.clay2.Size = new Size(24, 27);
+            this.Controls.Add(GameData.clay2);
+            GameData.clay2.BringToFront();
+
+            GameData.clay3.Location = new Point(370, 150);
+            GameData.clay3.Size = new Size(21, 29);
+            this.Controls.Add(GameData.clay3);
+            GameData.clay3.BringToFront();
+
+            GameData.clay4.Location = new Point(442, 331);
+            GameData.clay4.Size = new Size(21, 24);
+            this.Controls.Add(GameData.clay4);
+            GameData.clay4.BringToFront();
+
+            GameData.iron1.Location = new Point(175, 132);
+            GameData.iron1.Size = new Size(22, 25);
+            this.Controls.Add(GameData.iron1);
+            GameData.iron1.BringToFront();
+
+            GameData.iron2.Location = new Point(418, 189);
+            GameData.iron2.Size = new Size(18, 23);
+            this.Controls.Add(GameData.iron2);
+            GameData.iron2.BringToFront();
+
+            GameData.iron3.Location = new Point(465, 150);
+            GameData.iron3.Size = new Size(28, 29);
+            this.Controls.Add(GameData.iron3);
+            GameData.iron3.BringToFront();
+
+            GameData.iron4.Location = new Point(517, 187);
+            GameData.iron4.Size = new Size(19, 27);
+            this.Controls.Add(GameData.iron4);
+            GameData.iron4.BringToFront();
+
+            GameData.wood1.Location = new Point(239, 89);
+            GameData.wood1.Size = new Size(22, 24);
+            this.Controls.Add(GameData.wood1);
+            GameData.wood1.BringToFront();
+
+            GameData.wood2.Location = new Point(343, 358);
+            GameData.wood2.Size = new Size(18, 24);
+            this.Controls.Add(GameData.wood2);
+            GameData.wood2.BringToFront();
+
+            GameData.wood3.Location = new Point(352, 285);
+            GameData.wood3.Size = new Size(25, 28);
+            this.Controls.Add(GameData.wood3);
+            GameData.wood3.BringToFront();
+
+            GameData.wood4.Location = new Point(418, 102);
+            GameData.wood4.Size = new Size(24, 29);
+            this.Controls.Add(GameData.wood4);
+            GameData.wood4.BringToFront();
+
+            GameData.crop1.Location = new Point(111, 189);
+            GameData.crop1.Size = new Size(24, 23);
+            this.Controls.Add(GameData.crop1);
+            GameData.crop1.BringToFront();
+
+            GameData.crop2.Location = new Point(117, 262);
+            GameData.crop2.Size = new Size(18, 26);
+            this.Controls.Add(GameData.crop2);
+            GameData.crop2.BringToFront();
+
+            GameData.crop3.Location = new Point(201, 191);
+            GameData.crop3.Size = new Size(26, 23);
+            this.Controls.Add(GameData.crop3);
+            GameData.crop3.BringToFront();
+
+            GameData.crop4.Location = new Point(201, 245);
+            GameData.crop4.Size = new Size(26, 26);
+            this.Controls.Add(GameData.crop4);
+            GameData.crop4.BringToFront();
+
+            GameData.crop5.Location = new Point(494, 252);
+            GameData.crop5.Size = new Size(21, 24);
+            this.Controls.Add(GameData.crop5);
+            GameData.crop5.BringToFront();
+
+            GameData.crop6.Location = new Point(343, 83);
+            GameData.crop6.Size = new Size(22, 30);
+            this.Controls.Add(GameData.crop6);
+            GameData.crop6.BringToFront();
+
+
+            foreach (Control t in this.Controls)
+            {
+                if (t is Generator) t.Click += click;
+            }
+        }
+        Generator point = null;
+        private void click(object sender, EventArgs e)
+        {
+            foreach (Generator gen in this.Controls)
+            {
+
+                if (gen == sender)
+                {
+                    if (gen.level == 20)
+                    {
+                        MessageBox.Show("Maximum level reached.");
+                        point = null;
+                        break;
+                    }
+                    if (point != null)
+                    {
+                        if (gen.nama == point.nama)
+                        {
+                            point = null;
+                            detail();
+                            break;
+                        }
+                    }
+
+                    point = gen;
+                    detail();
+                    break;
+                }
+            }
+            buttonUpgrade.Enabled = point != null;
+        }
+        int[] req = { 0, 0, 0, 0, 0 };
+        private void detail()
+        {
+            labelDetails.Visible = point != null;
+            if (point != null)
+            {
+                int lvl = point.level;
+                if (point.resource_ref == 1)
+                {
+                    req[0] = (int)GlobalData.upg.clay.Rows[lvl]["clay"];
+                    req[1] = (int)GlobalData.upg.clay.Rows[lvl]["iron"];
+                    req[2] = (int)GlobalData.upg.clay.Rows[lvl]["wood"];
+                    req[3] = (int)GlobalData.upg.clay.Rows[lvl]["crop"];
+                    req[4] = (int)GlobalData.upg.clay.Rows[lvl]["waktu"];
+                }
+                else if (point.resource_ref == 2)
+                {
+                    req[0] = (int)GlobalData.upg.iron.Rows[lvl]["clay"];
+                    req[1] = (int)GlobalData.upg.iron.Rows[lvl]["iron"];
+                    req[2] = (int)GlobalData.upg.iron.Rows[lvl]["wood"];
+                    req[3] = (int)GlobalData.upg.iron.Rows[lvl]["crop"];
+                    req[4] = (int)GlobalData.upg.iron.Rows[lvl]["waktu"];
+                }
+                else if (point.resource_ref == 3)
+                {
+                    req[0] = (int)GlobalData.upg.wood.Rows[lvl]["clay"];
+                    req[1] = (int)GlobalData.upg.wood.Rows[lvl]["iron"];
+                    req[2] = (int)GlobalData.upg.wood.Rows[lvl]["wood"];
+                    req[3] = (int)GlobalData.upg.wood.Rows[lvl]["crop"];
+                    req[4] = (int)GlobalData.upg.wood.Rows[lvl]["waktu"];
+                }
+                else
+                {
+                    req[0] = (int)GlobalData.upg.crop.Rows[lvl]["clay"];
+                    req[1] = (int)GlobalData.upg.crop.Rows[lvl]["iron"];
+                    req[2] = (int)GlobalData.upg.crop.Rows[lvl]["wood"];
+                    req[3] = (int)GlobalData.upg.crop.Rows[lvl]["crop"];
+                    req[4] = (int)GlobalData.upg.crop.Rows[lvl]["waktu"];
+                }
+                string waktu = req[4] / 3600 + " Jam:" + req[4] / 60 % 60 + " Menit:" + req[4] % 60 + " Detik";
+                labelDetails.Text = "Level " + point.level + " | " + point.nama + "\n" +
+                                    "Need " + req[0] + " Clay\n" +
+                                    "Need " + req[1] + " Iron\n" +
+                                    "Need " + req[2] + " Wood\n" +
+                                    "Need " + req[3] + " Crop\n" +
+                                    "Waktu: " + waktu;
+            }
+        }
+
+        private void buttonUpgrade_Click(object sender, EventArgs e)
+        {
+            if (point != null)
+            {
+                if (point.active)
+                {
+                    MessageBox.Show("Currently being upgraded.");
+                }
+                else
+                {
+                    if (GameData.res_clay >= req[0] &&
+                       GameData.res_iron >= req[1] &&
+                       GameData.res_wood >= req[2] &&
+                       GameData.res_crop >= req[3])
+                    {
+                        GameData.res_clay -= req[0];
+                        GameData.res_iron -= req[1];
+                        GameData.res_wood -= req[2];
+                        GameData.res_crop -= req[3];
+                        point.uptime = req[4];
+                        point.active = true;
+                        point = null;
+                        detail();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Not enough resource.");
+                    }
+                }
+            }
+            buttonUpgrade.Enabled = point != null;
+        }
+
+        private void uptimer()
+        {
+            labelTimer.Text = "";
+            int i = 0;
+            foreach (Generator gen in this.Controls.OfType<Generator>())
+            {
+                if (gen.active)
+                {
+                    i++;
+                    gen.uptime -= 1;
+                    int t = gen.uptime;
+                    string waktu = t / 3600 + ":" + t / 60 % 60 + ":" + t % 60;
+                    labelTimer.Text += gen.nama + " Lvl " + gen.level + " | " + waktu + "\n";
+                    if (gen.uptime == 0)
+                    {
+                        gen.active = false;
+                        gen.level += 1;
+                        gen.Text = gen.level.ToString();
+                        int lvl = gen.level - 1;
+                        gen.production_rate = (int)GlobalData.upg.clay.Rows[lvl]["produksi"];
+                    }
+                    continue;
+                }
+            }
+
+            labelTimer.Visible = i > 0;
         }
     }
 }
