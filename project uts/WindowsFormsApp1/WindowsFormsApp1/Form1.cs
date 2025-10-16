@@ -46,11 +46,10 @@ namespace WindowsFormsApp1
                     for (int x = 0; x < 10; x++)
                     {
                         int type;
-                        // 10% chance to be a block (value 5, no function)
-                        if (r.NextDouble() < 0.1)
-                            type = 5;
+                        if (x == desaX && y == desaY)
+                            type = 0; // village
                         else
-                            type = (x == desaX && y == desaY) ? 0 : r.Next(1, 5);
+                            type = r.Next(1, 6); // 1–4 = resource, 5 = block
                         GlobalData.upg.Hunt.AddHuntRow(x, y, type);
                         lines.Add($"{x},{y},{type}");
                     }
