@@ -33,7 +33,7 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.huntToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonIron4 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -56,25 +56,29 @@
             this.buttonUpgrade = new System.Windows.Forms.Button();
             this.groupBoxTime = new System.Windows.Forms.GroupBox();
             this.labelTimer = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
-            this.button17 = new System.Windows.Forms.Button();
-            this.button18 = new System.Windows.Forms.Button();
+            this.buttonIron2 = new System.Windows.Forms.Button();
+            this.buttonIron3 = new System.Windows.Forms.Button();
+            this.buttonCrop5 = new System.Windows.Forms.Button();
+            this.buttonWood4 = new System.Windows.Forms.Button();
+            this.buttonClay4 = new System.Windows.Forms.Button();
+            this.buttonWood3 = new System.Windows.Forms.Button();
+            this.buttonWood2 = new System.Windows.Forms.Button();
+            this.buttonClay1 = new System.Windows.Forms.Button();
+            this.buttonCrop4 = new System.Windows.Forms.Button();
+            this.buttonClay3 = new System.Windows.Forms.Button();
+            this.buttonClay2 = new System.Windows.Forms.Button();
+            this.buttonCrop6 = new System.Windows.Forms.Button();
+            this.buttonWood1 = new System.Windows.Forms.Button();
+            this.buttonCrop3 = new System.Windows.Forms.Button();
+            this.buttonIron1 = new System.Windows.Forms.Button();
+            this.buttonCrop1 = new System.Windows.Forms.Button();
+            this.buttonCrop2 = new System.Windows.Forms.Button();
             this.timerGameUpdate = new System.Windows.Forms.Timer(this.components);
             this.timerProduction = new System.Windows.Forms.Timer(this.components);
+            this.label9 = new System.Windows.Forms.Label();
+            this.labelFPS = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.labelSpeed = new System.Windows.Forms.Label();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBoxProduction.SuspendLayout();
@@ -109,14 +113,14 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // button1
+            // buttonIron4
             // 
-            this.button1.Location = new System.Drawing.Point(517, 192);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(20, 22);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "0";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonIron4.Location = new System.Drawing.Point(517, 192);
+            this.buttonIron4.Name = "buttonIron4";
+            this.buttonIron4.Size = new System.Drawing.Size(20, 22);
+            this.buttonIron4.TabIndex = 2;
+            this.buttonIron4.Text = "0";
+            this.buttonIron4.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -341,158 +345,158 @@
             this.labelTimer.Text = "label13";
             this.labelTimer.Visible = false;
             // 
-            // button2
+            // buttonIron2
             // 
-            this.button2.Location = new System.Drawing.Point(417, 192);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(20, 22);
-            this.button2.TabIndex = 14;
-            this.button2.Text = "0";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonIron2.Location = new System.Drawing.Point(417, 192);
+            this.buttonIron2.Name = "buttonIron2";
+            this.buttonIron2.Size = new System.Drawing.Size(20, 22);
+            this.buttonIron2.TabIndex = 14;
+            this.buttonIron2.Text = "0";
+            this.buttonIron2.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // buttonIron3
             // 
-            this.button3.Location = new System.Drawing.Point(465, 157);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(20, 22);
-            this.button3.TabIndex = 15;
-            this.button3.Text = "0";
-            this.button3.UseVisualStyleBackColor = true;
+            this.buttonIron3.Location = new System.Drawing.Point(465, 157);
+            this.buttonIron3.Name = "buttonIron3";
+            this.buttonIron3.Size = new System.Drawing.Size(20, 22);
+            this.buttonIron3.TabIndex = 15;
+            this.buttonIron3.Text = "0";
+            this.buttonIron3.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // buttonCrop5
             // 
-            this.button4.Location = new System.Drawing.Point(495, 255);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(20, 22);
-            this.button4.TabIndex = 16;
-            this.button4.Text = "0";
-            this.button4.UseVisualStyleBackColor = true;
+            this.buttonCrop5.Location = new System.Drawing.Point(495, 255);
+            this.buttonCrop5.Name = "buttonCrop5";
+            this.buttonCrop5.Size = new System.Drawing.Size(20, 22);
+            this.buttonCrop5.TabIndex = 16;
+            this.buttonCrop5.Text = "0";
+            this.buttonCrop5.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // buttonWood4
             // 
-            this.button5.Location = new System.Drawing.Point(422, 103);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(20, 22);
-            this.button5.TabIndex = 17;
-            this.button5.Text = "0";
-            this.button5.UseVisualStyleBackColor = true;
+            this.buttonWood4.Location = new System.Drawing.Point(422, 103);
+            this.buttonWood4.Name = "buttonWood4";
+            this.buttonWood4.Size = new System.Drawing.Size(20, 22);
+            this.buttonWood4.TabIndex = 17;
+            this.buttonWood4.Text = "0";
+            this.buttonWood4.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // buttonClay4
             // 
-            this.button6.Location = new System.Drawing.Point(444, 332);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(20, 22);
-            this.button6.TabIndex = 18;
-            this.button6.Text = "0";
-            this.button6.UseVisualStyleBackColor = true;
+            this.buttonClay4.Location = new System.Drawing.Point(444, 332);
+            this.buttonClay4.Name = "buttonClay4";
+            this.buttonClay4.Size = new System.Drawing.Size(20, 22);
+            this.buttonClay4.TabIndex = 18;
+            this.buttonClay4.Text = "0";
+            this.buttonClay4.UseVisualStyleBackColor = true;
             // 
-            // button7
+            // buttonWood3
             // 
-            this.button7.Location = new System.Drawing.Point(357, 292);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(20, 22);
-            this.button7.TabIndex = 19;
-            this.button7.Text = "0";
-            this.button7.UseVisualStyleBackColor = true;
+            this.buttonWood3.Location = new System.Drawing.Point(357, 292);
+            this.buttonWood3.Name = "buttonWood3";
+            this.buttonWood3.Size = new System.Drawing.Size(20, 22);
+            this.buttonWood3.TabIndex = 19;
+            this.buttonWood3.Text = "0";
+            this.buttonWood3.UseVisualStyleBackColor = true;
             // 
-            // button8
+            // buttonWood2
             // 
-            this.button8.Location = new System.Drawing.Point(342, 361);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(20, 22);
-            this.button8.TabIndex = 20;
-            this.button8.Text = "0";
-            this.button8.UseVisualStyleBackColor = true;
+            this.buttonWood2.Location = new System.Drawing.Point(342, 361);
+            this.buttonWood2.Name = "buttonWood2";
+            this.buttonWood2.Size = new System.Drawing.Size(20, 22);
+            this.buttonWood2.TabIndex = 20;
+            this.buttonWood2.Text = "0";
+            this.buttonWood2.UseVisualStyleBackColor = true;
             // 
-            // button9
+            // buttonClay1
             // 
-            this.button9.Location = new System.Drawing.Point(239, 350);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(20, 22);
-            this.button9.TabIndex = 21;
-            this.button9.Text = "0";
-            this.button9.UseVisualStyleBackColor = true;
+            this.buttonClay1.Location = new System.Drawing.Point(239, 350);
+            this.buttonClay1.Name = "buttonClay1";
+            this.buttonClay1.Size = new System.Drawing.Size(20, 22);
+            this.buttonClay1.TabIndex = 21;
+            this.buttonClay1.Text = "0";
+            this.buttonClay1.UseVisualStyleBackColor = true;
             // 
-            // button10
+            // buttonCrop4
             // 
-            this.button10.Location = new System.Drawing.Point(202, 252);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(20, 22);
-            this.button10.TabIndex = 22;
-            this.button10.Text = "0";
-            this.button10.UseVisualStyleBackColor = true;
+            this.buttonCrop4.Location = new System.Drawing.Point(202, 252);
+            this.buttonCrop4.Name = "buttonCrop4";
+            this.buttonCrop4.Size = new System.Drawing.Size(20, 22);
+            this.buttonCrop4.TabIndex = 22;
+            this.buttonCrop4.Text = "0";
+            this.buttonCrop4.UseVisualStyleBackColor = true;
             // 
-            // button11
+            // buttonClay3
             // 
-            this.button11.Location = new System.Drawing.Point(370, 157);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(20, 22);
-            this.button11.TabIndex = 23;
-            this.button11.Text = "0";
-            this.button11.UseVisualStyleBackColor = true;
+            this.buttonClay3.Location = new System.Drawing.Point(370, 157);
+            this.buttonClay3.Name = "buttonClay3";
+            this.buttonClay3.Size = new System.Drawing.Size(20, 22);
+            this.buttonClay3.TabIndex = 23;
+            this.buttonClay3.Text = "0";
+            this.buttonClay3.UseVisualStyleBackColor = true;
             // 
-            // button12
+            // buttonClay2
             // 
-            this.button12.Location = new System.Drawing.Point(307, 147);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(20, 22);
-            this.button12.TabIndex = 24;
-            this.button12.Text = "0";
-            this.button12.UseVisualStyleBackColor = true;
+            this.buttonClay2.Location = new System.Drawing.Point(307, 147);
+            this.buttonClay2.Name = "buttonClay2";
+            this.buttonClay2.Size = new System.Drawing.Size(20, 22);
+            this.buttonClay2.TabIndex = 24;
+            this.buttonClay2.Text = "0";
+            this.buttonClay2.UseVisualStyleBackColor = true;
             // 
-            // button13
+            // buttonCrop6
             // 
-            this.button13.Location = new System.Drawing.Point(345, 91);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(20, 22);
-            this.button13.TabIndex = 25;
-            this.button13.Text = "0";
-            this.button13.UseVisualStyleBackColor = true;
+            this.buttonCrop6.Location = new System.Drawing.Point(345, 91);
+            this.buttonCrop6.Name = "buttonCrop6";
+            this.buttonCrop6.Size = new System.Drawing.Size(20, 22);
+            this.buttonCrop6.TabIndex = 25;
+            this.buttonCrop6.Text = "0";
+            this.buttonCrop6.UseVisualStyleBackColor = true;
             // 
-            // button14
+            // buttonWood1
             // 
-            this.button14.Location = new System.Drawing.Point(243, 91);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(20, 22);
-            this.button14.TabIndex = 26;
-            this.button14.Text = "0";
-            this.button14.UseVisualStyleBackColor = true;
+            this.buttonWood1.Location = new System.Drawing.Point(243, 91);
+            this.buttonWood1.Name = "buttonWood1";
+            this.buttonWood1.Size = new System.Drawing.Size(20, 22);
+            this.buttonWood1.TabIndex = 26;
+            this.buttonWood1.Text = "0";
+            this.buttonWood1.UseVisualStyleBackColor = true;
             // 
-            // button15
+            // buttonCrop3
             // 
-            this.button15.Location = new System.Drawing.Point(202, 192);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(20, 22);
-            this.button15.TabIndex = 27;
-            this.button15.Text = "0";
-            this.button15.UseVisualStyleBackColor = true;
+            this.buttonCrop3.Location = new System.Drawing.Point(202, 192);
+            this.buttonCrop3.Name = "buttonCrop3";
+            this.buttonCrop3.Size = new System.Drawing.Size(20, 22);
+            this.buttonCrop3.TabIndex = 27;
+            this.buttonCrop3.Text = "0";
+            this.buttonCrop3.UseVisualStyleBackColor = true;
             // 
-            // button16
+            // buttonIron1
             // 
-            this.button16.Location = new System.Drawing.Point(178, 135);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(20, 22);
-            this.button16.TabIndex = 28;
-            this.button16.Text = "0";
-            this.button16.UseVisualStyleBackColor = true;
+            this.buttonIron1.Location = new System.Drawing.Point(178, 135);
+            this.buttonIron1.Name = "buttonIron1";
+            this.buttonIron1.Size = new System.Drawing.Size(20, 22);
+            this.buttonIron1.TabIndex = 28;
+            this.buttonIron1.Text = "0";
+            this.buttonIron1.UseVisualStyleBackColor = true;
             // 
-            // button17
+            // buttonCrop1
             // 
-            this.button17.Location = new System.Drawing.Point(111, 192);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(20, 22);
-            this.button17.TabIndex = 29;
-            this.button17.Text = "0";
-            this.button17.UseVisualStyleBackColor = true;
+            this.buttonCrop1.Location = new System.Drawing.Point(111, 192);
+            this.buttonCrop1.Name = "buttonCrop1";
+            this.buttonCrop1.Size = new System.Drawing.Size(20, 22);
+            this.buttonCrop1.TabIndex = 29;
+            this.buttonCrop1.Text = "0";
+            this.buttonCrop1.UseVisualStyleBackColor = true;
             // 
-            // button18
+            // buttonCrop2
             // 
-            this.button18.Location = new System.Drawing.Point(119, 262);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(20, 22);
-            this.button18.TabIndex = 30;
-            this.button18.Text = "0";
-            this.button18.UseVisualStyleBackColor = true;
+            this.buttonCrop2.Location = new System.Drawing.Point(119, 262);
+            this.buttonCrop2.Name = "buttonCrop2";
+            this.buttonCrop2.Size = new System.Drawing.Size(20, 22);
+            this.buttonCrop2.TabIndex = 30;
+            this.buttonCrop2.Text = "0";
+            this.buttonCrop2.UseVisualStyleBackColor = true;
             // 
             // timerGameUpdate
             // 
@@ -506,29 +510,69 @@
             this.timerProduction.Interval = 1000;
             this.timerProduction.Tick += new System.EventHandler(this.timerProduction_Tick);
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(779, 9);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(33, 13);
+            this.label9.TabIndex = 31;
+            this.label9.Text = "FPS: ";
+            // 
+            // labelFPS
+            // 
+            this.labelFPS.AutoSize = true;
+            this.labelFPS.Location = new System.Drawing.Point(818, 9);
+            this.labelFPS.Name = "labelFPS";
+            this.labelFPS.Size = new System.Drawing.Size(13, 13);
+            this.labelFPS.TabIndex = 32;
+            this.labelFPS.Text = "0";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(779, 35);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(72, 13);
+            this.label11.TabIndex = 33;
+            this.label11.Text = "Game Speed:";
+            // 
+            // labelSpeed
+            // 
+            this.labelSpeed.AutoSize = true;
+            this.labelSpeed.Location = new System.Drawing.Point(857, 35);
+            this.labelSpeed.Name = "labelSpeed";
+            this.labelSpeed.Size = new System.Drawing.Size(13, 13);
+            this.labelSpeed.TabIndex = 34;
+            this.labelSpeed.Text = "0";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(911, 529);
             this.ContextMenuStrip = this.contextMenuStrip1;
-            this.Controls.Add(this.button18);
-            this.Controls.Add(this.button17);
-            this.Controls.Add(this.button16);
-            this.Controls.Add(this.button15);
-            this.Controls.Add(this.button14);
-            this.Controls.Add(this.button13);
-            this.Controls.Add(this.button12);
-            this.Controls.Add(this.button11);
-            this.Controls.Add(this.button10);
-            this.Controls.Add(this.button9);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.labelSpeed);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.labelFPS);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.buttonCrop2);
+            this.Controls.Add(this.buttonCrop1);
+            this.Controls.Add(this.buttonIron1);
+            this.Controls.Add(this.buttonCrop3);
+            this.Controls.Add(this.buttonWood1);
+            this.Controls.Add(this.buttonCrop6);
+            this.Controls.Add(this.buttonClay2);
+            this.Controls.Add(this.buttonClay3);
+            this.Controls.Add(this.buttonCrop4);
+            this.Controls.Add(this.buttonClay1);
+            this.Controls.Add(this.buttonWood2);
+            this.Controls.Add(this.buttonWood3);
+            this.Controls.Add(this.buttonClay4);
+            this.Controls.Add(this.buttonWood4);
+            this.Controls.Add(this.buttonCrop5);
+            this.Controls.Add(this.buttonIron3);
+            this.Controls.Add(this.buttonIron2);
             this.Controls.Add(this.groupBoxTime);
             this.Controls.Add(this.groupBoxDetails);
             this.Controls.Add(this.groupBoxProduction);
@@ -540,7 +584,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonIron4);
             this.Controls.Add(this.pictureBox1);
             this.DoubleBuffered = true;
             this.KeyPreview = true;
@@ -548,6 +592,7 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBoxProduction.ResumeLayout(false);
@@ -566,7 +611,7 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem huntToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonIron4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -589,25 +634,29 @@
         private System.Windows.Forms.Button buttonUpgrade;
         private System.Windows.Forms.GroupBox groupBoxTime;
         private System.Windows.Forms.Label labelTimer;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.Button button15;
-        private System.Windows.Forms.Button button16;
-        private System.Windows.Forms.Button button17;
-        private System.Windows.Forms.Button button18;
+        private System.Windows.Forms.Button buttonIron2;
+        private System.Windows.Forms.Button buttonIron3;
+        private System.Windows.Forms.Button buttonCrop5;
+        private System.Windows.Forms.Button buttonWood4;
+        private System.Windows.Forms.Button buttonClay4;
+        private System.Windows.Forms.Button buttonWood3;
+        private System.Windows.Forms.Button buttonWood2;
+        private System.Windows.Forms.Button buttonClay1;
+        private System.Windows.Forms.Button buttonCrop4;
+        private System.Windows.Forms.Button buttonClay3;
+        private System.Windows.Forms.Button buttonClay2;
+        private System.Windows.Forms.Button buttonCrop6;
+        private System.Windows.Forms.Button buttonWood1;
+        private System.Windows.Forms.Button buttonCrop3;
+        private System.Windows.Forms.Button buttonIron1;
+        private System.Windows.Forms.Button buttonCrop1;
+        private System.Windows.Forms.Button buttonCrop2;
         private System.Windows.Forms.Timer timerGameUpdate;
         private System.Windows.Forms.Timer timerProduction;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label labelFPS;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label labelSpeed;
     }
 }
 

@@ -27,6 +27,8 @@ namespace WindowsFormsApp1
         public static Generator crop2 = new Generator(2, 4);
         public static Generator crop3 = new Generator(3, 4);
         public static Generator crop4 = new Generator(4, 4);
+        public static Generator crop5 = new Generator(5, 4);
+        public static Generator crop6 = new Generator(6, 4);
 
         public static int res_clay = 0;
         public static int res_iron = 0;
@@ -43,7 +45,7 @@ namespace WindowsFormsApp1
             produce_clay_sum = clay1.production_rate + clay2.production_rate + clay3.production_rate + clay4.production_rate;
             produce_iron_sum = iron1.production_rate + iron2.production_rate + iron3.production_rate + iron4.production_rate;
             produce_wood_sum = wood1.production_rate + wood2.production_rate + wood3.production_rate + wood4.production_rate;
-            produce_crop_sum = crop1.production_rate + crop2.production_rate + crop3.production_rate + crop4.production_rate;
+            produce_crop_sum = crop1.production_rate + crop2.production_rate + crop3.production_rate + crop4.production_rate + crop5.production_rate + crop6.production_rate;
         }
     }
 }
