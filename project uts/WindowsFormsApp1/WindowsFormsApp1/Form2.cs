@@ -75,7 +75,14 @@ namespace WindowsFormsApp1
                 {
                     GameData.res_crop -= 500;
                 }
-                // else: do nothing, just skip deduction
+                else
+                {
+                    // Not enough crop, stop pulling
+                    moving = false;
+                    timer1.Stop();
+                    MessageBox.Show("Not enough crop to continue pulling!", "Insufficient Crop", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
                 cropConsumptionCounter -= 1000;
             }
 
@@ -113,9 +120,8 @@ namespace WindowsFormsApp1
                 // Mark as empty in dataset instead of deleting row/button
                 getoverhere.BackColor = Color.White;
                 int idx = buttons.IndexOf(getoverhere);
-                // Set the color value in the dataset to a special value (e.g., "-1" for empty)
-                GlobalData.upg.Hunt.Rows[idx][2] = "-1";
-                // Optionally: disable the button
+                // Set the color value in the dataset to "5" for disabled
+                GlobalData.upg.Hunt.Rows[idx][2] = "5";
                 getoverhere.Enabled = false;
                 timer1.Stop();
             }
@@ -168,11 +174,11 @@ namespace WindowsFormsApp1
                     {
                         b.BackColor = Color.Red;
                     }
-                    else if(val == "-1")
+                    else if(val == "5")
                     {
                         b.Enabled = false;
                     }
-                        b.Click += B_Click;
+                    b.Click += B_Click;
                     buttons.Add(b);
                     this.Controls.Add(b);
                 }

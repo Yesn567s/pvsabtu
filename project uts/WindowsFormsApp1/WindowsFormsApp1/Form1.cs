@@ -45,7 +45,12 @@ namespace WindowsFormsApp1
                 {
                     for (int x = 0; x < 10; x++)
                     {
-                        int type = (x == desaX && y == desaY) ? 0 : r.Next(1, 5);
+                        int type;
+                        // 10% chance to be a block (value 5, no function)
+                        if (r.NextDouble() < 0.1)
+                            type = 5;
+                        else
+                            type = (x == desaX && y == desaY) ? 0 : r.Next(1, 5);
                         GlobalData.upg.Hunt.AddHuntRow(x, y, type);
                         lines.Add($"{x},{y},{type}");
                     }
