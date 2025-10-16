@@ -463,6 +463,7 @@ namespace WindowsFormsApp1
                         gen.Text = gen.level.ToString();
                         int lvl = gen.level - 1;
                         gen.production_rate = (int)GlobalData.upg.clay.Rows[lvl]["produksi"];
+                        detail();
                     }
                     continue;
                 }
