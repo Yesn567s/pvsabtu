@@ -106,7 +106,7 @@
             this.pictureBox1.ContextMenuStrip = this.contextMenuStrip1;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(11, 68);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(591, 355);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -115,9 +115,10 @@
             // 
             // buttonIron4
             // 
-            this.buttonIron4.Location = new System.Drawing.Point(517, 192);
+            this.buttonIron4.Location = new System.Drawing.Point(517, 187);
+            this.buttonIron4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonIron4.Name = "buttonIron4";
-            this.buttonIron4.Size = new System.Drawing.Size(20, 22);
+            this.buttonIron4.Size = new System.Drawing.Size(19, 27);
             this.buttonIron4.TabIndex = 2;
             this.buttonIron4.Text = "0";
             this.buttonIron4.UseVisualStyleBackColor = true;
@@ -347,153 +348,170 @@
             // 
             // buttonIron2
             // 
-            this.buttonIron2.Location = new System.Drawing.Point(417, 192);
+            this.buttonIron2.Location = new System.Drawing.Point(418, 189);
+            this.buttonIron2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonIron2.Name = "buttonIron2";
-            this.buttonIron2.Size = new System.Drawing.Size(20, 22);
+            this.buttonIron2.Size = new System.Drawing.Size(18, 23);
             this.buttonIron2.TabIndex = 14;
             this.buttonIron2.Text = "0";
             this.buttonIron2.UseVisualStyleBackColor = true;
             // 
             // buttonIron3
             // 
-            this.buttonIron3.Location = new System.Drawing.Point(465, 157);
+            this.buttonIron3.Location = new System.Drawing.Point(465, 150);
+            this.buttonIron3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonIron3.Name = "buttonIron3";
-            this.buttonIron3.Size = new System.Drawing.Size(20, 22);
+            this.buttonIron3.Size = new System.Drawing.Size(28, 29);
             this.buttonIron3.TabIndex = 15;
             this.buttonIron3.Text = "0";
             this.buttonIron3.UseVisualStyleBackColor = true;
             // 
             // buttonCrop5
             // 
-            this.buttonCrop5.Location = new System.Drawing.Point(495, 255);
+            this.buttonCrop5.Location = new System.Drawing.Point(494, 252);
+            this.buttonCrop5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonCrop5.Name = "buttonCrop5";
-            this.buttonCrop5.Size = new System.Drawing.Size(20, 22);
+            this.buttonCrop5.Size = new System.Drawing.Size(21, 24);
             this.buttonCrop5.TabIndex = 16;
             this.buttonCrop5.Text = "0";
             this.buttonCrop5.UseVisualStyleBackColor = true;
             // 
             // buttonWood4
             // 
-            this.buttonWood4.Location = new System.Drawing.Point(422, 103);
+            this.buttonWood4.Location = new System.Drawing.Point(418, 102);
+            this.buttonWood4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonWood4.Name = "buttonWood4";
-            this.buttonWood4.Size = new System.Drawing.Size(20, 22);
+            this.buttonWood4.Size = new System.Drawing.Size(24, 29);
             this.buttonWood4.TabIndex = 17;
             this.buttonWood4.Text = "0";
             this.buttonWood4.UseVisualStyleBackColor = true;
             // 
             // buttonClay4
             // 
-            this.buttonClay4.Location = new System.Drawing.Point(444, 332);
+            this.buttonClay4.Location = new System.Drawing.Point(442, 331);
+            this.buttonClay4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonClay4.Name = "buttonClay4";
-            this.buttonClay4.Size = new System.Drawing.Size(20, 22);
+            this.buttonClay4.Size = new System.Drawing.Size(21, 24);
             this.buttonClay4.TabIndex = 18;
             this.buttonClay4.Text = "0";
             this.buttonClay4.UseVisualStyleBackColor = true;
             // 
             // buttonWood3
             // 
-            this.buttonWood3.Location = new System.Drawing.Point(357, 292);
+            this.buttonWood3.Location = new System.Drawing.Point(352, 285);
+            this.buttonWood3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonWood3.Name = "buttonWood3";
-            this.buttonWood3.Size = new System.Drawing.Size(20, 22);
+            this.buttonWood3.Size = new System.Drawing.Size(25, 28);
             this.buttonWood3.TabIndex = 19;
             this.buttonWood3.Text = "0";
             this.buttonWood3.UseVisualStyleBackColor = true;
             // 
             // buttonWood2
             // 
-            this.buttonWood2.Location = new System.Drawing.Point(342, 361);
+            this.buttonWood2.Location = new System.Drawing.Point(343, 358);
+            this.buttonWood2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonWood2.Name = "buttonWood2";
-            this.buttonWood2.Size = new System.Drawing.Size(20, 22);
+            this.buttonWood2.Size = new System.Drawing.Size(18, 24);
             this.buttonWood2.TabIndex = 20;
             this.buttonWood2.Text = "0";
             this.buttonWood2.UseVisualStyleBackColor = true;
             // 
             // buttonClay1
             // 
-            this.buttonClay1.Location = new System.Drawing.Point(239, 350);
+            this.buttonClay1.Location = new System.Drawing.Point(239, 349);
+            this.buttonClay1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonClay1.Name = "buttonClay1";
-            this.buttonClay1.Size = new System.Drawing.Size(20, 22);
+            this.buttonClay1.Size = new System.Drawing.Size(15, 24);
             this.buttonClay1.TabIndex = 21;
             this.buttonClay1.Text = "0";
             this.buttonClay1.UseVisualStyleBackColor = true;
             // 
             // buttonCrop4
             // 
-            this.buttonCrop4.Location = new System.Drawing.Point(202, 252);
+            this.buttonCrop4.Location = new System.Drawing.Point(201, 245);
+            this.buttonCrop4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonCrop4.Name = "buttonCrop4";
-            this.buttonCrop4.Size = new System.Drawing.Size(20, 22);
+            this.buttonCrop4.Size = new System.Drawing.Size(26, 26);
             this.buttonCrop4.TabIndex = 22;
             this.buttonCrop4.Text = "0";
             this.buttonCrop4.UseVisualStyleBackColor = true;
             // 
             // buttonClay3
             // 
-            this.buttonClay3.Location = new System.Drawing.Point(370, 157);
+            this.buttonClay3.Location = new System.Drawing.Point(370, 150);
+            this.buttonClay3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonClay3.Name = "buttonClay3";
-            this.buttonClay3.Size = new System.Drawing.Size(20, 22);
+            this.buttonClay3.Size = new System.Drawing.Size(21, 29);
             this.buttonClay3.TabIndex = 23;
             this.buttonClay3.Text = "0";
             this.buttonClay3.UseVisualStyleBackColor = true;
             // 
             // buttonClay2
             // 
-            this.buttonClay2.Location = new System.Drawing.Point(307, 147);
+            this.buttonClay2.Location = new System.Drawing.Point(304, 150);
+            this.buttonClay2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonClay2.Name = "buttonClay2";
-            this.buttonClay2.Size = new System.Drawing.Size(20, 22);
+            this.buttonClay2.Size = new System.Drawing.Size(24, 27);
             this.buttonClay2.TabIndex = 24;
             this.buttonClay2.Text = "0";
             this.buttonClay2.UseVisualStyleBackColor = true;
             // 
             // buttonCrop6
             // 
-            this.buttonCrop6.Location = new System.Drawing.Point(345, 91);
+            this.buttonCrop6.Location = new System.Drawing.Point(343, 83);
+            this.buttonCrop6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonCrop6.Name = "buttonCrop6";
-            this.buttonCrop6.Size = new System.Drawing.Size(20, 22);
+            this.buttonCrop6.Size = new System.Drawing.Size(22, 30);
             this.buttonCrop6.TabIndex = 25;
             this.buttonCrop6.Text = "0";
             this.buttonCrop6.UseVisualStyleBackColor = true;
             // 
             // buttonWood1
             // 
-            this.buttonWood1.Location = new System.Drawing.Point(243, 91);
+            this.buttonWood1.Location = new System.Drawing.Point(239, 89);
+            this.buttonWood1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonWood1.Name = "buttonWood1";
-            this.buttonWood1.Size = new System.Drawing.Size(20, 22);
+            this.buttonWood1.Size = new System.Drawing.Size(22, 24);
             this.buttonWood1.TabIndex = 26;
             this.buttonWood1.Text = "0";
             this.buttonWood1.UseVisualStyleBackColor = true;
             // 
             // buttonCrop3
             // 
-            this.buttonCrop3.Location = new System.Drawing.Point(202, 192);
+            this.buttonCrop3.Location = new System.Drawing.Point(201, 191);
+            this.buttonCrop3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonCrop3.Name = "buttonCrop3";
-            this.buttonCrop3.Size = new System.Drawing.Size(20, 22);
+            this.buttonCrop3.Size = new System.Drawing.Size(26, 23);
             this.buttonCrop3.TabIndex = 27;
             this.buttonCrop3.Text = "0";
             this.buttonCrop3.UseVisualStyleBackColor = true;
             // 
             // buttonIron1
             // 
-            this.buttonIron1.Location = new System.Drawing.Point(178, 135);
+            this.buttonIron1.Location = new System.Drawing.Point(175, 132);
+            this.buttonIron1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonIron1.Name = "buttonIron1";
-            this.buttonIron1.Size = new System.Drawing.Size(20, 22);
+            this.buttonIron1.Size = new System.Drawing.Size(22, 25);
             this.buttonIron1.TabIndex = 28;
             this.buttonIron1.Text = "0";
             this.buttonIron1.UseVisualStyleBackColor = true;
             // 
             // buttonCrop1
             // 
-            this.buttonCrop1.Location = new System.Drawing.Point(111, 192);
+            this.buttonCrop1.Location = new System.Drawing.Point(111, 189);
+            this.buttonCrop1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonCrop1.Name = "buttonCrop1";
-            this.buttonCrop1.Size = new System.Drawing.Size(20, 22);
+            this.buttonCrop1.Size = new System.Drawing.Size(24, 23);
             this.buttonCrop1.TabIndex = 29;
             this.buttonCrop1.Text = "0";
             this.buttonCrop1.UseVisualStyleBackColor = true;
             // 
             // buttonCrop2
             // 
-            this.buttonCrop2.Location = new System.Drawing.Point(119, 262);
+            this.buttonCrop2.Location = new System.Drawing.Point(117, 262);
+            this.buttonCrop2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonCrop2.Name = "buttonCrop2";
-            this.buttonCrop2.Size = new System.Drawing.Size(20, 22);
+            this.buttonCrop2.Size = new System.Drawing.Size(18, 26);
             this.buttonCrop2.TabIndex = 30;
             this.buttonCrop2.Text = "0";
             this.buttonCrop2.UseVisualStyleBackColor = true;
@@ -513,7 +531,8 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(779, 9);
+            this.label9.Location = new System.Drawing.Point(584, 7);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(33, 13);
             this.label9.TabIndex = 31;
@@ -522,7 +541,8 @@
             // labelFPS
             // 
             this.labelFPS.AutoSize = true;
-            this.labelFPS.Location = new System.Drawing.Point(818, 9);
+            this.labelFPS.Location = new System.Drawing.Point(614, 7);
+            this.labelFPS.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelFPS.Name = "labelFPS";
             this.labelFPS.Size = new System.Drawing.Size(13, 13);
             this.labelFPS.TabIndex = 32;
@@ -531,7 +551,8 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(779, 35);
+            this.label11.Location = new System.Drawing.Point(584, 28);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(72, 13);
             this.label11.TabIndex = 33;
@@ -540,7 +561,8 @@
             // labelSpeed
             // 
             this.labelSpeed.AutoSize = true;
-            this.labelSpeed.Location = new System.Drawing.Point(857, 35);
+            this.labelSpeed.Location = new System.Drawing.Point(660, 28);
+            this.labelSpeed.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelSpeed.Name = "labelSpeed";
             this.labelSpeed.Size = new System.Drawing.Size(13, 13);
             this.labelSpeed.TabIndex = 34;
@@ -588,7 +610,7 @@
             this.Controls.Add(this.pictureBox1);
             this.DoubleBuffered = true;
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
