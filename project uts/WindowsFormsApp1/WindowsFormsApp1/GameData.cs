@@ -44,7 +44,22 @@ namespace WindowsFormsApp1
         public static double ironProductionMultiplier = 1.0;
         public static double woodProductionMultiplier = 1.0;
         public static double cropProductionMultiplier = 1.0;
-        public static int animationSpeedMultiplier = 1000;
+        private static int _animationSpeedMultiplier = 1000;
+        public static int animationSpeedMultiplier
+        {
+            get { return _animationSpeedMultiplier; }
+            private set { _animationSpeedMultiplier = value; }
+        }
+        public static event Action AnimationSpeedChanged;
+
+        public static void SetAnimationSpeedMultiplier(int value)
+        {
+            if (_animationSpeedMultiplier != value)
+            {
+                _animationSpeedMultiplier = value;
+                AnimationSpeedChanged?.Invoke();
+            }
+        }
 
         public static void updateProduction()
         {

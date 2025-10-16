@@ -13,15 +13,13 @@ namespace WindowsFormsApp1
     public partial class Form1 : Form
     {
         int game_speed = 1;
-        int tempx=0, tempy=0;  
-        bool desa = false;
-        Random r = new Random();
 
 
         public Form1()
         {
             InitializeComponent();
             upgset();
+            GameData.AnimationSpeedChanged += OnAnimationSpeedChanged;
             string mapPath = "map.txt";
             if (System.IO.File.Exists(mapPath))
             {
@@ -61,7 +59,7 @@ namespace WindowsFormsApp1
         private void huntToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form2 f2 = new Form2();
-            f2.ShowDialog();
+            f2.Show();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -97,12 +95,13 @@ namespace WindowsFormsApp1
 
         private void timerGameUpdate_Tick(object sender, EventArgs e) // update game visual setiap 1000/60 = 16.67 frame (60 tick biar ga ngeleg)
         {
-            Updatelabel();
             GameData.updateProduction();
+            Updatelabel();
         }
 
         private void timerProduction_Tick(object sender, EventArgs e)
         {
+            GameData.updateProduction(); // Ensure multipliers are applied before adding
             GameData.res_clay += GameData.produce_clay_sum;
             GameData.res_iron += GameData.produce_iron_sum;
             GameData.res_wood += GameData.produce_wood_sum;
@@ -114,15 +113,11 @@ namespace WindowsFormsApp1
             if (e.KeyChar >= '1' && e.KeyChar <= '9')
             {
                 int mult = e.KeyChar - '0';
-                timerProduction.Interval = 1000 / mult;
-                game_speed = mult;
-                GameData.animationSpeedMultiplier = mult; // set animation speed multiplier
+                GameData.SetAnimationSpeedMultiplier(mult);
             }
             else if (e.KeyChar == '0')
             {
-                timerProduction.Interval = 100;
-                game_speed = 10;
-                GameData.animationSpeedMultiplier = 10; // set animation speed multiplier
+                GameData.SetAnimationSpeedMultiplier(10);
             }
 
             // Debug Only: Change Game Update Speed
@@ -222,6 +217,14 @@ namespace WindowsFormsApp1
             GlobalData.upg.wood.AddwoodRow(18, 244480, 611195, 305600, 366715, 1750880, 2240, 420);
             GlobalData.upg.wood.AddwoodRow(19, 408280, 1020695, 510350, 612420, 2801600, 2800, 560);
             GlobalData.upg.wood.AddwoodRow(20, 681825, 1704565, 852280, 1022740, 4482770, 3430, 630);
+        }
+
+        private void OnAnimationSpeedChanged()
+        {
+            int mult = Math.Max(1, GameData.animationSpeedMultiplier);
+            timerProduction.Interval = mult == 10 ? 100 : 1000 / mult;
+            game_speed = mult;
+            Updatelabel();
         }
     }
 }

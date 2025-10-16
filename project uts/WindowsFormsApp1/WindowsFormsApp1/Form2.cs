@@ -20,7 +20,19 @@ namespace WindowsFormsApp1
         public Form2()
         {
             InitializeComponent();
+            this.KeyPreview = true;
+            GameData.AnimationSpeedChanged += OnAnimationSpeedChanged;
         }
+
+        private void OnAnimationSpeedChanged()
+        {
+            if (moving)
+            {
+                int mult = Math.Max(1, GameData.animationSpeedMultiplier);
+                timer1.Interval = mult == 10 ? 100 : 1000 / mult;
+            }
+        }
+
         private void B_Click(object sender, EventArgs e)
         {
             if (moving) return; // Prevent pulling another while moving
@@ -31,6 +43,12 @@ namespace WindowsFormsApp1
             }
             else
             {
+                // Check crop before starting animation
+                if (GameData.res_crop < 500)
+                {
+                    MessageBox.Show("Not enough crop to pull! (Need at least 500)", "Insufficient Crop", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
                 foreach (Button b in buttons)
                 {
                     if (b.BackColor == Color.Black)
@@ -43,7 +61,7 @@ namespace WindowsFormsApp1
                 getoverhere.BringToFront();
                 // Set timer interval based on current animation speed multiplier
                 int mult = Math.Max(1, GameData.animationSpeedMultiplier);
-                timer1.Interval = mult == 10 ? 100 : 1000 / mult;
+                timer1.Interval = Math.Max(100, 1000 / mult); // Always 1000ms at 1x, faster as multiplier increases, min 100ms
                 timer1.Start();
             }
         }
@@ -56,15 +74,9 @@ namespace WindowsFormsApp1
                 if (GameData.res_crop >= 500)
                 {
                     GameData.res_crop -= 500;
-                    cropConsumptionCounter -= 1000;
                 }
-                else
-                {
-                    // Not enough crop, stop animation
-                    moving = false;
-                    timer1.Stop();
-                    return;
-                }
+                // else: do nothing, just skip deduction
+                cropConsumptionCounter -= 1000;
             }
 
             int newX = getoverhere.Location.X;
@@ -86,22 +98,26 @@ namespace WindowsFormsApp1
             {
                 moving = false;
                 this.Controls.Remove(getoverhere);
-                // Change to white to indicate 'empty' (or remove if you prefer)
-                getoverhere.BackColor = Color.White;
-                // Optionally: this.Controls.Remove(getoverhere);
-                GlobalData.upg.Hunt.Rows[buttons.IndexOf(getoverhere)].Delete();
-                buttons.RemoveAt(buttons.IndexOf(getoverhere));
-                timer1.Stop();
                 // --- Bonus produksi: +25% permanent, akumulatif ---
-                // Apply multiplier based on color
-                if (scorpion.BackColor == Color.Gray)
+                // Apply multiplier based on color BEFORE setting to white
+                if (getoverhere.BackColor == Color.Gray)
                     GameData.ironProductionMultiplier *= 1.25;
-                else if (scorpion.BackColor == Color.Green)
+                else if (getoverhere.BackColor == Color.Green)
                     GameData.woodProductionMultiplier *= 1.25;
-                else if (scorpion.BackColor == Color.Yellow)
+                else if (getoverhere.BackColor == Color.Yellow)
                     GameData.cropProductionMultiplier *= 1.25;
-                else if (scorpion.BackColor == Color.Red)
+                else if (getoverhere.BackColor == Color.Red)
                     GameData.clayProductionMultiplier *= 1.25;
+                GameData.updateProduction(); // Ensure production values are updated after multiplier change
+
+                // Mark as empty in dataset instead of deleting row/button
+                getoverhere.BackColor = Color.White;
+                int idx = buttons.IndexOf(getoverhere);
+                // Set the color value in the dataset to a special value (e.g., "-1" for empty)
+                GlobalData.upg.Hunt.Rows[idx][2] = "-1";
+                // Optionally: disable the button
+                getoverhere.Enabled = false;
+                timer1.Stop();
             }
             this.Invalidate(); // Redraw the form
         }
@@ -152,11 +168,28 @@ namespace WindowsFormsApp1
                     {
                         b.BackColor = Color.Red;
                     }
-                    b.Click += B_Click;
+                    else if(val == "-1")
+                    {
+                        b.Enabled = false;
+                    }
+                        b.Click += B_Click;
                     buttons.Add(b);
                     this.Controls.Add(b);
                 }
             }
         }
+
+        private void Form2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar >= '1' && e.KeyChar <= '9')
+            {
+                int mult = e.KeyChar - '0';
+                GameData.SetAnimationSpeedMultiplier(mult);
+            }
+            else if (e.KeyChar == '0')
+            {
+                GameData.SetAnimationSpeedMultiplier(10);
+            }
+        }  
     }
 }
