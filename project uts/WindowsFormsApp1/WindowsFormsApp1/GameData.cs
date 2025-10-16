@@ -40,12 +40,18 @@ namespace WindowsFormsApp1
         public static int produce_wood_sum = 0;
         public static int produce_crop_sum = 0;
 
+        public static double clayProductionMultiplier = 1.0;
+        public static double ironProductionMultiplier = 1.0;
+        public static double woodProductionMultiplier = 1.0;
+        public static double cropProductionMultiplier = 1.0;
+        public static int animationSpeedMultiplier = 1000;
+
         public static void updateProduction()
         {
-            produce_clay_sum = clay1.production_rate + clay2.production_rate + clay3.production_rate + clay4.production_rate;
-            produce_iron_sum = iron1.production_rate + iron2.production_rate + iron3.production_rate + iron4.production_rate;
-            produce_wood_sum = wood1.production_rate + wood2.production_rate + wood3.production_rate + wood4.production_rate;
-            produce_crop_sum = crop1.production_rate + crop2.production_rate + crop3.production_rate + crop4.production_rate + crop5.production_rate + crop6.production_rate;
+            produce_clay_sum = (int)((clay1.production_rate + clay2.production_rate + clay3.production_rate + clay4.production_rate) * clayProductionMultiplier);
+            produce_iron_sum = (int)((iron1.production_rate + iron2.production_rate + iron3.production_rate + iron4.production_rate) * ironProductionMultiplier);
+            produce_wood_sum = (int)((wood1.production_rate + wood2.production_rate + wood3.production_rate + wood4.production_rate) * woodProductionMultiplier);
+            produce_crop_sum = (int)((crop1.production_rate + crop2.production_rate + crop3.production_rate + crop4.production_rate + crop5.production_rate + crop6.production_rate) * cropProductionMultiplier);
         }
     }
 }
