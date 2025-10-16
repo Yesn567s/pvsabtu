@@ -3,23 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public class Generator
+    public class Generator : Button
     {
         public int id;
         public int resource_ref;
         public int production_rate = 1;
         public int level = 0;
         public string nama;
-        bool active = false;
+        public bool active = false;
+        public int uptime = 0;
 
         public Generator(int id, int resource_reference) // 1. Clay 2. Iron 3. Wood 4. Crop
         {
             this.id = id;
             this.resource_ref = resource_reference;
             this.nama = SetNama(resource_reference, id);
+            this.Text = level.ToString();
+            
         }
 
         public void Activate(bool active) // buat upgrade nanti :)
@@ -50,5 +54,6 @@ namespace WindowsFormsApp1
             }
             return "";
         }
+
     }
 }
