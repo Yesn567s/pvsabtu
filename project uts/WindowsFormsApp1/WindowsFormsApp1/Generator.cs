@@ -11,7 +11,7 @@ namespace WindowsFormsApp1
     {
         public int id;
         public int resource_ref;
-        public int production_rate = 1;
+        public int production_rate = 0;
         public int level = 0;
         public string nama;
         public bool active = false;

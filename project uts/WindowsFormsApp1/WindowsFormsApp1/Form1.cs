@@ -79,10 +79,14 @@ namespace WindowsFormsApp1
         private void Updatelabel()
         {
             float fps = 1000f / timerGameUpdate.Interval;
-            labelClayAmt.Text = GameData.res_clay.ToString();
-            labelIronAmt.Text = GameData.res_iron.ToString();
-            labelWoodAmt.Text = GameData.res_wood.ToString();
-            labelCropAmt.Text = GameData.res_crop.ToString();
+            int clay = (int)(GameData.res_clay / 1);
+            int iron = (int)(GameData.res_iron / 1);
+            int wood = (int)(GameData.res_wood / 1);
+            int crop = (int)(GameData.res_crop / 1);
+            labelClayAmt.Text = clay.ToString();
+            labelIronAmt.Text = iron.ToString();
+            labelWoodAmt.Text = wood.ToString();
+            labelCropAmt.Text = crop.ToString();
 
             labelClayProduction.Text = GameData.produce_clay_sum.ToString() +
                 $" (x{GameData.clayProductionMultiplier:0.##})";
@@ -106,10 +110,11 @@ namespace WindowsFormsApp1
         private void timerProduction_Tick(object sender, EventArgs e)
         {
             GameData.updateProduction(); // Ensure multipliers are applied before adding
-            GameData.res_clay += GameData.produce_clay_sum;
-            GameData.res_iron += GameData.produce_iron_sum;
-            GameData.res_wood += GameData.produce_wood_sum;
-            GameData.res_crop += GameData.produce_crop_sum;
+            int s = 1; // set to 3600 for perhour
+            GameData.res_clay += GameData.produce_clay_sum/s;
+            GameData.res_iron += GameData.produce_iron_sum/s;
+            GameData.res_wood += GameData.produce_wood_sum/s;
+            GameData.res_crop += GameData.produce_crop_sum/s;
             uptimer();
         }
 
