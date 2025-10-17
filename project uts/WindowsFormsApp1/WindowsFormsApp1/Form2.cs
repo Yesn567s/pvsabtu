@@ -14,7 +14,8 @@ namespace WindowsFormsApp1
     {
         List<int> mapa = new List<int>();
         List<Button> buttons = new List<Button>();
-        Button getoverhere, scorpion;
+        List<Button> pullingButtons = new List<Button>();
+        Button scorpion;
         bool moving = false;
         private int cropConsumptionCounter = 0; // ms accumulator for crop consumption
         public Form2()
@@ -35,20 +36,24 @@ namespace WindowsFormsApp1
 
         private void B_Click(object sender, EventArgs e)
         {
-            if (moving) return; // Prevent pulling another while moving
-            getoverhere = (Button)sender;
-            if (getoverhere.BackColor == Color.Black)
+            Button clicked = (Button)sender;
+            if (clicked.BackColor == Color.Black)
             {
-                // Do nothing
+                // clicking the scorpion does nothing
+                return;
             }
-            else
+
+            // If the button is already disabled or white, ignore
+            if (!clicked.Enabled || clicked.BackColor == Color.White)
+                return;
+
+            // If this button is already scheduled to be pulled, ignore
+            if (pullingButtons.Contains(clicked))
+                return;
+
+            // Find scorpion if not known
+            if (scorpion == null)
             {
-                // Check crop before starting animation
-                if (GameData.res_crop < 500)
-                {
-                    MessageBox.Show("Not enough crop to pull! (Need at least 500)", "Insufficient Crop", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
                 foreach (Button b in buttons)
                 {
                     if (b.BackColor == Color.Black)
@@ -57,8 +62,27 @@ namespace WindowsFormsApp1
                         break;
                     }
                 }
+            }
+
+            // Add to list of buttons to pull
+            pullingButtons.Add(clicked);
+            // Bring it to front so it's visible
+            clicked.BringToFront();
+
+            // If not moving, start the timer now
+            if (!moving)
+            {
+                // Original startup crop check preserved but commented out for teacher reference
+                // int requiredStart = 500 * Math.Max(1, pullingButtons.Count);
+                // if (GameData.res_crop < requiredStart)
+                // {
+                //     MessageBox.Show($"Not enough crop to pull! (Need at least {requiredStart})", "Insufficient Crop", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //     pullingButtons.Clear();
+                //     return;
+                // }
+
+                // Start pulling even if current crop is insufficient; if crop runs out later, timer tick will stop and save positions.
                 moving = true;
-                getoverhere.BringToFront();
                 // Set timer interval based on current animation speed multiplier
                 int mult = Math.Max(1, GameData.animationSpeedMultiplier);
                 timer1.Interval = Math.Max(100, 1000 / mult); // Always 1000ms at 1x, faster as multiplier increases, min 100ms
@@ -67,78 +91,128 @@ namespace WindowsFormsApp1
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
+            if (pullingButtons.Count == 0 || scorpion == null)
+            {
+                moving = false;
+                timer1.Stop();
+                return;
+            }
+
             // --- Crop consumption logic ---
             cropConsumptionCounter += timer1.Interval;
             if (cropConsumptionCounter >= 1000) // 1 second passed
             {
-                if (GameData.res_crop >= 500)
+                int costPerButton = 500;
+                int required = costPerButton * pullingButtons.Count;
+                if (GameData.res_crop >= required)
                 {
-                    GameData.res_crop -= 500;
+                    GameData.res_crop -= required;
                 }
                 else
                 {
-                    // Not enough crop, stop pulling
+                    // Not enough crop, stop pulling and write current positions back to dataset
                     moving = false;
                     timer1.Stop();
-                    MessageBox.Show("Not enough crop to continue pulling!", "Insufficient Crop", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    UpdateDatasetPositionsForAllPulling();
+                    MessageBox.Show("Not enough crop to continue pulling! Positions saved.", "Insufficient Crop", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
                 cropConsumptionCounter -= 1000;
             }
 
-            int newX = getoverhere.Location.X;
-            int newY = getoverhere.Location.Y;
+            // Move each pulling button towards the scorpion
+            // Use a copy of list because we may remove items while iterating
+            var toProcess = pullingButtons.ToList();
+            foreach (var btn in toProcess)
+            {
+                int newX = btn.Location.X;
+                int newY = btn.Location.Y;
 
-            if (newX < scorpion.Location.X)
-                newX += 10;
-            else if (newX > scorpion.Location.X)
-                newX -= 10;
+                if (newX < scorpion.Location.X)
+                    newX += 10;
+                else if (newX > scorpion.Location.X)
+                    newX -= 10;
 
-            if (newY < scorpion.Location.Y)
-                newY += 10;
-            else if (newY > scorpion.Location.Y)
-                newY -= 10;
+                if (newY < scorpion.Location.Y)
+                    newY += 10;
+                else if (newY > scorpion.Location.Y)
+                    newY -= 10;
 
-            getoverhere.Location = new Point(newX, newY);
+                btn.Location = new Point(newX, newY);
 
-            if (getoverhere.Location == scorpion.Location)
+                if (btn.Location == scorpion.Location)
+                {
+                    // Reached destination
+                    // Apply multiplier based on color BEFORE setting to white
+                    if (btn.BackColor == Color.Gray)
+                        GameData.ironProductionMultiplier *= 1.25;
+                    else if (btn.BackColor == Color.Green)
+                        GameData.woodProductionMultiplier *= 1.25;
+                    else if (btn.BackColor == Color.Yellow)
+                        GameData.cropProductionMultiplier *= 1.25;
+                    else if (btn.BackColor == Color.Red)
+                        GameData.clayProductionMultiplier *= 1.25;
+                    GameData.updateProduction(); // Ensure production values are updated after multiplier change
+
+                    // Remove button visual and mark disabled
+                    this.Controls.Remove(btn);
+                    // Mark as empty in dataset and set coordinates to scorpion pixel location
+                    int idx = buttons.IndexOf(btn);
+                    if (idx >= 0 && idx < GlobalData.upg.Hunt.Rows.Count)
+                    {
+                        int scX = scorpion.Location.X;
+                        int scY = scorpion.Location.Y;
+                        GlobalData.upg.Hunt.Rows[idx][0] = scX.ToString();
+                        GlobalData.upg.Hunt.Rows[idx][1] = scY.ToString();
+                        GlobalData.upg.Hunt.Rows[idx][2] = "5"; // disabled
+                    }
+                    btn.BackColor = Color.White;
+                    btn.Enabled = false;
+                    pullingButtons.Remove(btn);
+                }
+            }
+
+            // If no more pulling buttons left, stop
+            if (pullingButtons.Count == 0)
             {
                 moving = false;
-                this.Controls.Remove(getoverhere);
-                // --- Bonus produksi: +25% permanent, akumulatif ---
-                // Apply multiplier based on color BEFORE setting to white
-                if (getoverhere.BackColor == Color.Gray)
-                    GameData.ironProductionMultiplier *= 1.25;
-                else if (getoverhere.BackColor == Color.Green)
-                    GameData.woodProductionMultiplier *= 1.25;
-                else if (getoverhere.BackColor == Color.Yellow)
-                    GameData.cropProductionMultiplier *= 1.25;
-                else if (getoverhere.BackColor == Color.Red)
-                    GameData.clayProductionMultiplier *= 1.25;
-                GameData.updateProduction(); // Ensure production values are updated after multiplier change
-
-                // Mark as empty in dataset instead of deleting row/button
-                getoverhere.BackColor = Color.White;
-                int idx = buttons.IndexOf(getoverhere);
-                // Set the color value in the dataset to "5" for disabled
-                GlobalData.upg.Hunt.Rows[idx][2] = "5";
-                getoverhere.Enabled = false;
                 timer1.Stop();
             }
+
             this.Invalidate(); // Redraw the form
+        }
+
+        private void UpdateDatasetPositionsForAllPulling()
+        {
+            // Update dataset with current positions (store pixel coordinates)
+            foreach (var btn in pullingButtons)
+            {
+                int idx = buttons.IndexOf(btn);
+                if (idx >= 0 && idx < GlobalData.upg.Hunt.Rows.Count)
+                {
+                    int px = btn.Location.X;
+                    int py = btn.Location.Y;
+                    GlobalData.upg.Hunt.Rows[idx][0] = px.ToString();
+                    GlobalData.upg.Hunt.Rows[idx][1] = py.ToString();
+                    // preserve type value in [2]
+                }
+            }
         }
 
         private void Form2_Paint(object sender, PaintEventArgs e)
         {
-            if (moving && getoverhere != null && scorpion != null)
+            if (moving && scorpion != null && pullingButtons != null && pullingButtons.Count > 0)
             {
                 Graphics g = e.Graphics;
                 Pen pen = new Pen(Color.BlueViolet, 2);
-                Point p1 = new Point(getoverhere.Left + getoverhere.Width / 2,
-                                        getoverhere.Top + getoverhere.Height / 2);
                 Point p2 = new Point(scorpion.Left + scorpion.Width / 2,
                                         scorpion.Top + scorpion.Height / 2);
-                g.DrawLine(pen, p1, p2);
+                foreach (var getoverhere in pullingButtons)
+                {
+                    Point p1 = new Point(getoverhere.Left + getoverhere.Width / 2,
+                                            getoverhere.Top + getoverhere.Height / 2);
+                    g.DrawLine(pen, p1, p2);
+                }
             }
         }
 
@@ -152,7 +226,11 @@ namespace WindowsFormsApp1
                     b.Size = new Size(50, 50);
                     int x = Convert.ToInt32(GlobalData.upg.Hunt.Rows[i * 10 + j].ItemArray[0]);
                     int y = Convert.ToInt32(GlobalData.upg.Hunt.Rows[i * 10 + j].ItemArray[1]);
-                    b.Location = new Point(x * 50, y * 50);
+                    // Support dataset that may already store scaled coordinates
+                    if (x >= 0 && x <= 9 && y >= 0 && y <= 9)
+                        b.Location = new Point(x * 50, y * 50);
+                    else
+                        b.Location = new Point(x, y);
                     string val = GlobalData.upg.Hunt.Rows[i * 10 + j].ItemArray[2].ToString();
                     if (val == "0")
                     {
@@ -177,11 +255,21 @@ namespace WindowsFormsApp1
                     else if(val == "5")
                     {
                         b.Enabled = false;
+                        b.BackColor = Color.White;
                     }
                     b.Click += B_Click;
                     buttons.Add(b);
                     this.Controls.Add(b);
                 }
+            }
+        }
+
+        private void Form2_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // Save current positions of any buttons still being pulled
+            if (pullingButtons != null && pullingButtons.Count > 0)
+            {
+                UpdateDatasetPositionsForAllPulling();
             }
         }
 

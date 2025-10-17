@@ -35,12 +35,20 @@ namespace WindowsFormsApp1
                     int x = int.Parse(parts[0]);
                     int y = int.Parse(parts[1]);
                     int type = int.Parse(parts[2]);
-                    GlobalData.upg.Hunt.AddHuntRow(x, y, type);
+                    // If file stores grid coords (0..9), convert to pixels for compatibility
+                    if (x >= 0 && x <= 9 && y >= 0 && y <= 9)
+                    {
+                        GlobalData.upg.Hunt.AddHuntRow(x * 50, y * 50, type);
+                    }
+                    else
+                    {
+                        GlobalData.upg.Hunt.AddHuntRow(x, y, type);
+                    }
                 }
             }
             else
             {
-                // Generate and save map
+                // Generate and save map (store pixel coordinates x*50,y*50)
                 Random r = new Random();
                 int desaX = r.Next(0, 10);
                 int desaY = r.Next(0, 10);
@@ -54,8 +62,10 @@ namespace WindowsFormsApp1
                             type = 0; // village
                         else
                             type = r.Next(1, 6); // 1–4 = resource, 5 = block
-                        GlobalData.upg.Hunt.AddHuntRow(x, y, type);
-                        lines.Add($"{x},{y},{type}");
+                        int px = x * 50;
+                        int py = y * 50;
+                        GlobalData.upg.Hunt.AddHuntRow(px, py, type);
+                        lines.Add($"{px},{py},{type}");
                     }
                 }
                 System.IO.File.WriteAllLines(mapPath, lines);
