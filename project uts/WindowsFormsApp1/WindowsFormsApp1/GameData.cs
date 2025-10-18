@@ -69,4 +69,6 @@ namespace WindowsFormsApp1
             produce_crop_sum = (int)((crop1.production_rate + crop2.production_rate + crop3.production_rate + crop4.production_rate + crop5.production_rate + crop6.production_rate + 48) * cropProductionMultiplier);
         }
     }
+
+
 }

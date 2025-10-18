@@ -19,6 +19,14 @@ namespace WindowsFormsApp1
         public Form1()
         {
             InitializeComponent();
+
+            this.FormClosing += Form1_FormClosing; //save game saat nutup form
+
+            if (SaveManager.SaveFileExists())
+            {
+                SaveManager.LoadGame();
+            }
+
             upgset();
             //Hide Posisi Button Asli (nanti hapus sama buttonnya)
             foreach (Control b in this.Controls) if (b is Button) b.Visible = false;
@@ -72,6 +80,21 @@ namespace WindowsFormsApp1
             }
             timerGameUpdate.Start();
             timerProduction.Start();
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveManager.SaveGame();
+        }
+
+        private void deleteSaveFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveManager.DeleteSave();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SaveManager.SaveGame();
         }
 
         private void huntToolStripMenuItem_Click(object sender, EventArgs e)
@@ -448,6 +471,8 @@ namespace WindowsFormsApp1
                         point.active = true;
                         point = null;
                         detail();
+
+                        SaveManager.SaveGame(); // tak taruh sini buat ngesave tiap kali selesai upgrade 
                     }
                     else
                     {
@@ -486,5 +511,6 @@ namespace WindowsFormsApp1
 
             labelTimer.Visible = i > 0;
         }
+
     }
 }
