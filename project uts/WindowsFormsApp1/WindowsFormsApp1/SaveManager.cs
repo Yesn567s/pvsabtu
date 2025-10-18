@@ -56,6 +56,16 @@ namespace WindowsFormsApp1
                 lines.Add(SaveGenerator(GameData.crop5));
                 lines.Add(SaveGenerator(GameData.crop6));
 
+                // map nya yang di hunt
+                lines.Add("HUNTMAP");
+                foreach (System.Data.DataRow row in GlobalData.upg.Hunt.Rows)
+                {
+                    string x = row[0].ToString();
+                    string y = row[1].ToString();
+                    string type = row[2].ToString();
+                    lines.Add(x + "|" + y + "|" + type);
+                }
+
                 File.WriteAllLines(savePath, lines);
                 System.Windows.Forms.MessageBox.Show("berhasil ngesave 🗣️");
             }
@@ -134,6 +144,23 @@ namespace WindowsFormsApp1
                 LoadGenerator(GameData.crop5, lines[index++]);
                 LoadGenerator(GameData.crop6, lines[index++]);
 
+                // load hunt map
+                while (index < lines.Length && lines[index] != "HUNTMAP") index++;
+                index++;
+                GlobalData.upg.Hunt.Rows.Clear();
+                while (index < lines.Length)
+                {
+                    string[] parts = lines[index].Split('|');
+                    if (parts.Length >= 3)
+                    {
+                        int x = int.Parse(parts[0]);
+                        int y = int.Parse(parts[1]);
+                        int type = int.Parse(parts[2]);
+                        GlobalData.upg.Hunt.AddHuntRow(x, y, type);
+                    }
+                    index++;
+                }
+
                 System.Windows.Forms.MessageBox.Show("Game loaded successfully!");
             }
             catch (Exception e)
@@ -171,23 +198,5 @@ namespace WindowsFormsApp1
             FileInfo fileInfo = new FileInfo(savePath);
             return fileInfo.Length == 0;
         }
-
-        // pendeletan (bakal di add tombolnya klo mau, tpi dri kriteria gaperlu si)
-        public static void DeleteSave()
-        {
-            try
-            {
-                if (SaveFileExists())
-                {
-                    File.Delete(savePath);
-                    System.Windows.Forms.MessageBox.Show("Save file deleted.");
-                }
-            }
-            catch (Exception e)
-            {
-                System.Windows.Forms.MessageBox.Show("Failed to delete save: " + e.Message);
-            }
-        }
     }
 }
-

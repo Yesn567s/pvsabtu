@@ -20,63 +20,65 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
 
-            this.FormClosing += Form1_FormClosing; //save game saat nutup form
-
-            if (SaveManager.SaveFileExists())
-            {
-                SaveManager.LoadGame();
-            }
+            this.FormClosing += Form1_FormClosing; // Save game saat nutup form
 
             upgset();
+
             //Hide Posisi Button Asli (nanti hapus sama buttonnya)
             foreach (Control b in this.Controls) if (b is Button) b.Visible = false;
             genset();
             GameData.AnimationSpeedChanged += OnAnimationSpeedChanged;
             string mapPath = "map.txt";
-            if (System.IO.File.Exists(mapPath))
+            if (SaveManager.SaveFileExists() && !SaveManager.IsSaveFileEmpty())
             {
-                // Load map from file
-                string[] lines = System.IO.File.ReadAllLines(mapPath);
-                foreach (var line in lines)
-                {
-                    var parts = line.Split(',');
-                    int x = int.Parse(parts[0]);
-                    int y = int.Parse(parts[1]);
-                    int type = int.Parse(parts[2]);
-                    // If file stores grid coords (0..9), convert to pixels for compatibility
-                    if (x >= 0 && x <= 9 && y >= 0 && y <= 9)
-                    {
-                        GlobalData.upg.Hunt.AddHuntRow(x * 50, y * 50, type);
-                    }
-                    else
-                    {
-                        GlobalData.upg.Hunt.AddHuntRow(x, y, type);
-                    }
-                }
+                SaveManager.LoadGame(); // Map sudah di-load dari save
             }
-            else
+            else // Kalau ga ada save, baru generate map baru
             {
-                // Generate and save map (store pixel coordinates x*50,y*50)
-                Random r = new Random();
-                int desaX = r.Next(0, 10);
-                int desaY = r.Next(0, 10);
-                var lines = new List<string>();
-                for (int y = 0; y < 10; y++)
+                if (System.IO.File.Exists(mapPath))
                 {
-                    for (int x = 0; x < 10; x++)
+                    // Load from map.txt
+                    string[] lines = System.IO.File.ReadAllLines(mapPath);
+                    foreach (var line in lines)
                     {
-                        int type;
-                        if (x == desaX && y == desaY)
-                            type = 0; // village
+                        var parts = line.Split(',');
+                        int x = int.Parse(parts[0]);
+                        int y = int.Parse(parts[1]);
+                        int type = int.Parse(parts[2]);
+                        if (x >= 0 && x <= 9 && y >= 0 && y <= 9)
+                        {
+                            GlobalData.upg.Hunt.AddHuntRow(x * 50, y * 50, type);
+                        }
                         else
-                            type = r.Next(1, 6); // 1–4 = resource, 5 = block
-                        int px = x * 50;
-                        int py = y * 50;
-                        GlobalData.upg.Hunt.AddHuntRow(px, py, type);
-                        lines.Add($"{px},{py},{type}");
+                        {
+                            GlobalData.upg.Hunt.AddHuntRow(x, y, type);
+                        }
                     }
                 }
-                System.IO.File.WriteAllLines(mapPath, lines);
+                else
+                {
+                    // Generate new map
+                    Random r = new Random();
+                    int desaX = r.Next(0, 10);
+                    int desaY = r.Next(0, 10);
+                    var lines = new List<string>();
+                    for (int y = 0; y < 10; y++)
+                    {
+                        for (int x = 0; x < 10; x++)
+                        {
+                            int type;
+                            if (x == desaX && y == desaY)
+                                type = 0;
+                            else
+                                type = r.Next(1, 6);
+                            int px = x * 50;
+                            int py = y * 50;
+                            GlobalData.upg.Hunt.AddHuntRow(px, py, type);
+                            lines.Add($"{px},{py},{type}");
+                        }
+                    }
+                    System.IO.File.WriteAllLines(mapPath, lines);
+                }
             }
             timerGameUpdate.Start();
             timerProduction.Start();
@@ -85,11 +87,6 @@ namespace WindowsFormsApp1
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveManager.SaveGame();
-        }
-
-        private void deleteSaveFileToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SaveManager.DeleteSave();
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)

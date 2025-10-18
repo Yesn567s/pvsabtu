@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.huntToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.buttonIron4 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -79,8 +80,6 @@
             this.labelFPS = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.labelSpeed = new System.Windows.Forms.Label();
-            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteSaveFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBoxProduction.SuspendLayout();
@@ -93,10 +92,9 @@
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.huntToolStripMenuItem,
-            this.saveToolStripMenuItem,
-            this.deleteSaveFileToolStripMenuItem});
+            this.saveToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 92);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 70);
             // 
             // huntToolStripMenuItem
             // 
@@ -105,12 +103,19 @@
             this.huntToolStripMenuItem.Text = "[ Hunt ]";
             this.huntToolStripMenuItem.Click += new System.EventHandler(this.huntToolStripMenuItem_Click);
             // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Text = "[ Save ]";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.ContextMenuStrip = this.contextMenuStrip1;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(11, 68);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(591, 355);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -120,7 +125,7 @@
             // buttonIron4
             // 
             this.buttonIron4.Location = new System.Drawing.Point(517, 187);
-            this.buttonIron4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonIron4.Margin = new System.Windows.Forms.Padding(2);
             this.buttonIron4.Name = "buttonIron4";
             this.buttonIron4.Size = new System.Drawing.Size(19, 27);
             this.buttonIron4.TabIndex = 2;
@@ -353,7 +358,7 @@
             // buttonIron2
             // 
             this.buttonIron2.Location = new System.Drawing.Point(418, 189);
-            this.buttonIron2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonIron2.Margin = new System.Windows.Forms.Padding(2);
             this.buttonIron2.Name = "buttonIron2";
             this.buttonIron2.Size = new System.Drawing.Size(18, 23);
             this.buttonIron2.TabIndex = 14;
@@ -363,7 +368,7 @@
             // buttonIron3
             // 
             this.buttonIron3.Location = new System.Drawing.Point(465, 150);
-            this.buttonIron3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonIron3.Margin = new System.Windows.Forms.Padding(2);
             this.buttonIron3.Name = "buttonIron3";
             this.buttonIron3.Size = new System.Drawing.Size(28, 29);
             this.buttonIron3.TabIndex = 15;
@@ -373,7 +378,7 @@
             // buttonCrop5
             // 
             this.buttonCrop5.Location = new System.Drawing.Point(494, 252);
-            this.buttonCrop5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonCrop5.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCrop5.Name = "buttonCrop5";
             this.buttonCrop5.Size = new System.Drawing.Size(21, 24);
             this.buttonCrop5.TabIndex = 16;
@@ -383,7 +388,7 @@
             // buttonWood4
             // 
             this.buttonWood4.Location = new System.Drawing.Point(418, 102);
-            this.buttonWood4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonWood4.Margin = new System.Windows.Forms.Padding(2);
             this.buttonWood4.Name = "buttonWood4";
             this.buttonWood4.Size = new System.Drawing.Size(24, 29);
             this.buttonWood4.TabIndex = 17;
@@ -393,7 +398,7 @@
             // buttonClay4
             // 
             this.buttonClay4.Location = new System.Drawing.Point(442, 331);
-            this.buttonClay4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonClay4.Margin = new System.Windows.Forms.Padding(2);
             this.buttonClay4.Name = "buttonClay4";
             this.buttonClay4.Size = new System.Drawing.Size(21, 24);
             this.buttonClay4.TabIndex = 18;
@@ -403,7 +408,7 @@
             // buttonWood3
             // 
             this.buttonWood3.Location = new System.Drawing.Point(352, 285);
-            this.buttonWood3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonWood3.Margin = new System.Windows.Forms.Padding(2);
             this.buttonWood3.Name = "buttonWood3";
             this.buttonWood3.Size = new System.Drawing.Size(25, 28);
             this.buttonWood3.TabIndex = 19;
@@ -413,7 +418,7 @@
             // buttonWood2
             // 
             this.buttonWood2.Location = new System.Drawing.Point(343, 358);
-            this.buttonWood2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonWood2.Margin = new System.Windows.Forms.Padding(2);
             this.buttonWood2.Name = "buttonWood2";
             this.buttonWood2.Size = new System.Drawing.Size(18, 24);
             this.buttonWood2.TabIndex = 20;
@@ -423,7 +428,7 @@
             // buttonClay1
             // 
             this.buttonClay1.Location = new System.Drawing.Point(239, 349);
-            this.buttonClay1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonClay1.Margin = new System.Windows.Forms.Padding(2);
             this.buttonClay1.Name = "buttonClay1";
             this.buttonClay1.Size = new System.Drawing.Size(15, 24);
             this.buttonClay1.TabIndex = 21;
@@ -433,7 +438,7 @@
             // buttonCrop4
             // 
             this.buttonCrop4.Location = new System.Drawing.Point(201, 245);
-            this.buttonCrop4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonCrop4.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCrop4.Name = "buttonCrop4";
             this.buttonCrop4.Size = new System.Drawing.Size(26, 26);
             this.buttonCrop4.TabIndex = 22;
@@ -443,7 +448,7 @@
             // buttonClay3
             // 
             this.buttonClay3.Location = new System.Drawing.Point(370, 150);
-            this.buttonClay3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonClay3.Margin = new System.Windows.Forms.Padding(2);
             this.buttonClay3.Name = "buttonClay3";
             this.buttonClay3.Size = new System.Drawing.Size(21, 29);
             this.buttonClay3.TabIndex = 23;
@@ -453,7 +458,7 @@
             // buttonClay2
             // 
             this.buttonClay2.Location = new System.Drawing.Point(304, 150);
-            this.buttonClay2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonClay2.Margin = new System.Windows.Forms.Padding(2);
             this.buttonClay2.Name = "buttonClay2";
             this.buttonClay2.Size = new System.Drawing.Size(24, 27);
             this.buttonClay2.TabIndex = 24;
@@ -463,7 +468,7 @@
             // buttonCrop6
             // 
             this.buttonCrop6.Location = new System.Drawing.Point(343, 83);
-            this.buttonCrop6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonCrop6.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCrop6.Name = "buttonCrop6";
             this.buttonCrop6.Size = new System.Drawing.Size(22, 30);
             this.buttonCrop6.TabIndex = 25;
@@ -473,7 +478,7 @@
             // buttonWood1
             // 
             this.buttonWood1.Location = new System.Drawing.Point(239, 89);
-            this.buttonWood1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonWood1.Margin = new System.Windows.Forms.Padding(2);
             this.buttonWood1.Name = "buttonWood1";
             this.buttonWood1.Size = new System.Drawing.Size(22, 24);
             this.buttonWood1.TabIndex = 26;
@@ -483,7 +488,7 @@
             // buttonCrop3
             // 
             this.buttonCrop3.Location = new System.Drawing.Point(201, 191);
-            this.buttonCrop3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonCrop3.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCrop3.Name = "buttonCrop3";
             this.buttonCrop3.Size = new System.Drawing.Size(26, 23);
             this.buttonCrop3.TabIndex = 27;
@@ -493,7 +498,7 @@
             // buttonIron1
             // 
             this.buttonIron1.Location = new System.Drawing.Point(175, 132);
-            this.buttonIron1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonIron1.Margin = new System.Windows.Forms.Padding(2);
             this.buttonIron1.Name = "buttonIron1";
             this.buttonIron1.Size = new System.Drawing.Size(22, 25);
             this.buttonIron1.TabIndex = 28;
@@ -503,7 +508,7 @@
             // buttonCrop1
             // 
             this.buttonCrop1.Location = new System.Drawing.Point(111, 189);
-            this.buttonCrop1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonCrop1.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCrop1.Name = "buttonCrop1";
             this.buttonCrop1.Size = new System.Drawing.Size(24, 23);
             this.buttonCrop1.TabIndex = 29;
@@ -513,7 +518,7 @@
             // buttonCrop2
             // 
             this.buttonCrop2.Location = new System.Drawing.Point(117, 262);
-            this.buttonCrop2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonCrop2.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCrop2.Name = "buttonCrop2";
             this.buttonCrop2.Size = new System.Drawing.Size(18, 26);
             this.buttonCrop2.TabIndex = 30;
@@ -572,20 +577,6 @@
             this.labelSpeed.TabIndex = 34;
             this.labelSpeed.Text = "0";
             // 
-            // saveToolStripMenuItem
-            // 
-            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.saveToolStripMenuItem.Text = "[ Save ]";
-            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
-            // 
-            // deleteSaveFileToolStripMenuItem
-            // 
-            this.deleteSaveFileToolStripMenuItem.Name = "deleteSaveFileToolStripMenuItem";
-            this.deleteSaveFileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.deleteSaveFileToolStripMenuItem.Text = "[ Delete Save File ]";
-            this.deleteSaveFileToolStripMenuItem.Click += new System.EventHandler(this.deleteSaveFileToolStripMenuItem_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -628,7 +619,7 @@
             this.Controls.Add(this.pictureBox1);
             this.DoubleBuffered = true;
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -698,7 +689,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label labelSpeed;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem deleteSaveFileToolStripMenuItem;
     }
 }
 
