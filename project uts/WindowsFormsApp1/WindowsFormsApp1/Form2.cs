@@ -145,13 +145,13 @@ namespace WindowsFormsApp1
                     // Reached destination
                     // Apply multiplier based on color BEFORE setting to white
                     if (btn.BackColor == Color.Gray)
-                        GameData.ironProductionMultiplier *= 1.25;
+                        GameData.ironProductionMultiplier += 0.25;
                     else if (btn.BackColor == Color.Green)
-                        GameData.woodProductionMultiplier *= 1.25;
+                        GameData.woodProductionMultiplier += 0.25;
                     else if (btn.BackColor == Color.Yellow)
-                        GameData.cropProductionMultiplier *= 1.25;
+                        GameData.cropProductionMultiplier += 0.25;
                     else if (btn.BackColor == Color.Red)
-                        GameData.clayProductionMultiplier *= 1.25;
+                        GameData.clayProductionMultiplier += 0.25;
                     GameData.updateProduction(); // Ensure production values are updated after multiplier change
 
                     // Remove button visual and mark disabled

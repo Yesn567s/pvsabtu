@@ -140,7 +140,7 @@ namespace WindowsFormsApp1
         private void timerProduction_Tick(object sender, EventArgs e)
         {
             GameData.updateProduction(); // Ensure multipliers are applied before adding
-            int s = 1; // set to 3600 for perhour
+            int s = 3600; // set to 3600 for perhour
             GameData.res_clay += GameData.produce_clay_sum/s;
             GameData.res_iron += GameData.produce_iron_sum/s;
             GameData.res_wood += GameData.produce_wood_sum/s;
@@ -447,11 +447,26 @@ namespace WindowsFormsApp1
 
         private void buttonUpgrade_Click(object sender, EventArgs e)
         {
+            // Cuma bisa Upgrade Resource satu-satu
+            // Ini di komen kalau mau bisa upgrade beberapa sekaligus
+            foreach (Generator gen in this.Controls.OfType<Generator>())
+            {
+                if (gen.active)
+                {
+                    MessageBox.Show("A resource is currently being upgraded.", "Upgrade Unavailable");
+                    point = null;
+                    detail();
+                    break;
+                }
+            }
+            //
             if (point != null)
             {
                 if (point.active)
                 {
                     MessageBox.Show("Currently being upgraded.");
+                    point = null;
+                    detail();
                 }
                 else
                 {
