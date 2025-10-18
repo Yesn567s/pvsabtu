@@ -184,10 +184,10 @@ namespace WindowsFormsApp1
                 if (elapsedSeconds > 0)
                 {
                     // Add produced resources for elapsed time
-                    GameData.res_clay += GameData.produce_clay_sum * elapsedSeconds;
-                    GameData.res_iron += GameData.produce_iron_sum * elapsedSeconds;
-                    GameData.res_wood += GameData.produce_wood_sum * elapsedSeconds;
-                    GameData.res_crop += GameData.produce_crop_sum * elapsedSeconds;
+                    GameData.res_clay += GameData.produce_clay_sum * elapsedSeconds/3600;
+                    GameData.res_iron += GameData.produce_iron_sum * elapsedSeconds/3600;
+                    GameData.res_wood += GameData.produce_wood_sum * elapsedSeconds/3600;
+                    GameData.res_crop += GameData.produce_crop_sum * elapsedSeconds/3600;
 
                     // Reduce uptime for active generators and finish those that completed while offline
                     // If a generator finishes, finalize one level up and mark inactive (simple handling)
